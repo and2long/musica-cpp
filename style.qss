@@ -1,0 +1,18 @@
+.MainWindow {
+    background-color: #252525;
+}
+
+.LeftMenus QListWidget {
+    color: #AAA;
+    background-color: black;
+    padding: 20px;
+}
+
+.LeftMenus QListWidget::item {
+    height: 32px;
+}
+
+.LeftMenus QListWidget::item:selected {
+    background-color: #2ABf9E;
+    border-radius: 5px;
+}

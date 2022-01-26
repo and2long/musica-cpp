@@ -1,5 +1,9 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/qss">
         <file>style.qss</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>ic_play.svg</file>
+        <file>ic_pause.svg</file>
     </qresource>
 </RCC>

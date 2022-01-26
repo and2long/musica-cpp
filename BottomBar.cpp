@@ -28,4 +28,10 @@ BottomBar::BottomBar(QWidget *parent)
     songDuration->setStyleSheet("color: grey");
     songDuration->setText("02:00 / 04:16");
 
+    // 播放按钮
+    QLabel *btnPlay = new QLabel(this);
+    btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+    btnPlay->setFixedSize(40, 40);
+    btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 20);
+
 }

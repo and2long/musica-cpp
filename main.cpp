@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
     // 加载qss样式
-    QFile f(":/style.qss");
+    QFile f(":/qss/style.qss");
     if (f.open(QFile::ReadOnly)){
         QString str = QLatin1String(f.readAll());
         qApp->setStyleSheet(str);

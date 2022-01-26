@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     LeftMenus.cpp \
     MainWindow.cpp \
+    TopBar.cpp \
     main.cpp
 
 HEADERS += \
     LeftMenus.h \
     MainWindow.h \
+    TopBar.h \
     constants.h
 
 # Default rules for deployment.

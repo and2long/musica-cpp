@@ -2,6 +2,7 @@
     background-color: #252525;
 }
 
+/*左侧菜单*/
 .LeftMenus QLabel {
     background-color: #202020;
     font-size: 20px;
@@ -21,4 +22,15 @@
 }
 .LeftMenus QListWidget::item:hover {
     background-color: #1b1b1b;
+}
+
+/*顶部栏*/
+TopBar #bg{
+    background-color: #2A2A2A;
+}
+TopBar QLineEdit {
+    background-color: #4a4a4a;
+    padding: 0 15px;
+    border-radius: 14px;
+    color: #aaaaaa;
 }

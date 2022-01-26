@@ -2,12 +2,14 @@
 #define ITEMSONG_H
 
 #include <QWidget>
+#include "Song.h"
 
 class ItemSong : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ItemSong(QWidget *parent = nullptr);
+    explicit ItemSong(Song song, QWidget *parent = nullptr);
+    Song song;
 
 signals:
 

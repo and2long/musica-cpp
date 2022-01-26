@@ -13,6 +13,7 @@ SOURCES += \
     LeftMenus.cpp \
     MainWindow.cpp \
     SearchPage.cpp \
+    Song.cpp \
     TopBar.cpp \
     main.cpp
 
@@ -21,6 +22,7 @@ HEADERS += \
     LeftMenus.h \
     MainWindow.h \
     SearchPage.h \
+    Song.h \
     TopBar.h \
     constants.h
 

@@ -1,4 +1,4 @@
-#include "left_menus.h"
+#include "LeftMenus.h"
 #include <QListWidget>
 #include "constants.h"
 #include <QLabel>

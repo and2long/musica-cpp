@@ -1,5 +1,5 @@
-#include "main_window.h"
-#include <left_menus.h>
+#include "MainWindow.h"
+#include <LeftMenus.h>
 #include "constants.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)

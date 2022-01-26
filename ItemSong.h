@@ -8,8 +8,7 @@ class ItemSong : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ItemSong(Song song, QWidget *parent = nullptr);
-    Song song;
+    explicit ItemSong(int index, Song song, QWidget *parent = nullptr);
 
 signals:
 

@@ -1,8 +1,9 @@
 #include "ItemSong.h"
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QString>
 
-ItemSong::ItemSong(Song s, QWidget *parent) : QWidget{parent}, song(s)
+ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}
 {
     QHBoxLayout  *layout = new QHBoxLayout;
     setLayout(layout);
@@ -10,14 +11,14 @@ ItemSong::ItemSong(Song s, QWidget *parent) : QWidget{parent}, song(s)
     layout->setSpacing(0);
 
     int item_song_stretchs[] = {2, 9, 5, 3};
-    string titles[] = {"00", s.name, s.artists, to_string(s.duration)};
+    QString titles[] = {QString::fromStdString(to_string(index + 1)), song.name, song.artists, QString::fromStdString(to_string(song.duration))};
     for (int i = 0; i< 4 ; i++) {
         QLabel *item = new QLabel;
         if (i == 0)
         {
             item->setAlignment(Qt::AlignCenter);
         }
-        item->setText(QString::fromStdString(titles[i]));
+        item->setText(titles[i]);
         layout->addWidget(item, item_song_stretchs[i]);
     }
 }

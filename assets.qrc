@@ -6,4 +6,7 @@
         <file>ic_play.svg</file>
         <file>ic_pause.svg</file>
     </qresource>
+    <qresource prefix="/">
+        <file>search_result.json</file>
+    </qresource>
 </RCC>

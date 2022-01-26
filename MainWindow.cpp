@@ -3,6 +3,7 @@
 #include "constants.h"
 #include "TopBar.h"
 #include "SearchPage.h"
+#include "BottomBar.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
@@ -16,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 
     SearchPage *searchPage = new SearchPage(this);
     searchPage->move(LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
+
+    BottomBar *bottomBar = new BottomBar(this);
+    bottomBar->move(0, 610);
 }
 
 MainWindow::~MainWindow()

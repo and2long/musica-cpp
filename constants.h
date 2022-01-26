@@ -8,6 +8,7 @@ const int TOP_BAR_WIDTH = 800;
 const int TOP_BAR_HEIGHT = 50;
 const int CONTAINER_WIDTH = 800;
 const int CONTAINER_HEIGHT = 560;
+const int BOTTOM_BAR_HEIGHT = 60;
 
 
 #endif // CONSTANTS_H

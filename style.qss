@@ -34,3 +34,34 @@ TopBar QLineEdit {
     border-radius: 14px;
     color: #aaaaaa;
 }
+
+/*歌曲列表*/
+.SearchPage QListWidget {
+    background-color: #252525;
+    border: none;
+}
+.SearchPage QListWidget::item {
+    height: 37px;
+}
+.SearchPage QListWidget::item:selected {
+    background-color: #292929;
+}
+.SearchPage QListWidget::item:hover {
+    background-color: #2f2f2f;
+}
+
+/*滚动条*/
+QScrollBar:vertical {
+    background:#252525;
+    width:8px;
+}
+QScrollBar::handle:vertical {
+    background: gray;
+    border-radius: 4px;
+}
+QScrollBar::add-line:vertical {
+    height: 0px;
+}
+QScrollBar::sub-line:vertical {
+    height: 0 px;
+}

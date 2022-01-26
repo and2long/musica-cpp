@@ -13,4 +13,5 @@ TopBar::TopBar(QWidget *parent)
     searchBox->setClearButtonEnabled(true);
     searchBox->setFixedSize(300, 28);
     searchBox->move((WINDOW_WIDTH - LEFT_MENUS_WIDTH) / 2 - 150, 11);
+    searchBox->setPlaceholderText("关键字搜索");
 }

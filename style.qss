@@ -44,7 +44,7 @@ TopBar QLineEdit {
     height: 37px;
 }
 .SearchPage QListWidget::item:selected {
-    background-color: #292929;
+    background-color: #2f2f2f;
 }
 .SearchPage QListWidget::item:hover {
     background-color: #2f2f2f;
@@ -65,3 +65,9 @@ QScrollBar::add-line:vertical {
 QScrollBar::sub-line:vertical {
     height: 0 px;
 }
+
+/*歌曲条目*/
+ItemSong QLabel{
+    color: #B7B7B7;
+}
+

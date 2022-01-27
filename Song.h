@@ -15,7 +15,7 @@ public:
     Song(int id, QString name, QString artists, int duration);
     Song(QJsonObject obj);
 
-    string toString();
+    QString toString();
 };
 
 #endif // SONG_H

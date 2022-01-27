@@ -1,6 +1,8 @@
 #include "BottomBar.h"
 #include "constants.h"
 #include <QLabel>
+#include "Song.h"
+#include "ClickedLabel.h"
 
 BottomBar::BottomBar(QWidget *parent)
     : QWidget{parent}
@@ -29,9 +31,15 @@ BottomBar::BottomBar(QWidget *parent)
     songDuration->setText("02:00 / 04:16");
 
     // 播放按钮
-    QLabel *btnPlay = new QLabel(this);
+    ClickedLabel *btnPlay = new ClickedLabel(this);
     btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
     btnPlay->setFixedSize(40, 40);
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 20);
+    QObject::connect(btnPlay, SIGNAL(clicked()),this, SLOT(play()));
 
+}
+
+void BottomBar::play()
+{
+    qDebug() << "播放";
 }

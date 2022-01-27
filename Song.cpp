@@ -38,7 +38,7 @@ Song::Song(QJsonObject song)
     duration = songDuration;
     artists = singer;
 }
-string Song::toString()
+QString Song::toString()
 {
-    return  "id:" + to_string(id) + ", name:" + name.toStdString();
+    return  QString::fromStdString("id:" + to_string(id) + ", name:" + name.toStdString());
 }

@@ -3,7 +3,7 @@
 #include <QLabel>
 #include <QString>
 
-ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}
+ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, song(song)
 {
     QHBoxLayout  *layout = new QHBoxLayout;
     setLayout(layout);
@@ -21,4 +21,10 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}
         item->setText(titles[i]);
         layout->addWidget(item, item_song_stretchs[i]);
     }
+}
+
+void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
+{
+    (void)ev;
+    emit clicked(song);
 }

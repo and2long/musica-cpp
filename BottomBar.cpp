@@ -43,3 +43,8 @@ void BottomBar::play()
 {
     qDebug() << "播放";
 }
+
+void BottomBar::onSongClickedListener(Song song)
+{
+    qDebug() << song.toString();
+}

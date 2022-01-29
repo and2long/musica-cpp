@@ -43,8 +43,14 @@ SearchPage::SearchPage(QWidget *parent)
                 QListWidgetItem *item = new QListWidgetItem;
                 items->addItem(item);
                 items->setItemWidget(item, widget);
+                connect(widget, SIGNAL(clicked(Song)),this,  SLOT(onItemClicked(Song)));
             }
         }
     }
 
+}
+
+void SearchPage::onItemClicked(Song song)
+{
+    emit itemClicked(song);
 }

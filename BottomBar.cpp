@@ -35,7 +35,7 @@ BottomBar::BottomBar(QWidget *parent)
     btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
     btnPlay->setFixedSize(40, 40);
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 20);
-    QObject::connect(btnPlay, SIGNAL(clicked()),this, SLOT(play()));
+    QObject::connect(btnPlay, &ClickedLabel::clicked,this, &BottomBar::play);
 
 }
 
@@ -47,4 +47,5 @@ void BottomBar::play()
 void BottomBar::onSongClickedListener(Song song)
 {
     qDebug() << song.toString();
+
 }

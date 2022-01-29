@@ -2,12 +2,13 @@
 #include <string>
 #include <QJsonArray>
 
-Song::Song(int songId, QString songName, QString songArtists, int songDuration)
+Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum)
 {
     id = songId;
     name = songName;
     duration = songDuration;
     artists = songArtists;
+    album = songAlbum;
 };
 
 Song::Song(QJsonObject song)
@@ -15,6 +16,7 @@ Song::Song(QJsonObject song)
     int songId = song.value("id").toInt();
     int songDuration = song.value("duration").toInt();
     QString songName = song.value("name").toString();
+    QString songAlbum = song.value("album").toObject().value("artist").toObject().value("img1v1Url").toString();
     QJsonArray ats = song.value("artists").toArray();
     QString singer;
     if (ats.size() == 1)
@@ -37,8 +39,10 @@ Song::Song(QJsonObject song)
     name = songName;
     duration = songDuration;
     artists = singer;
+    album = songAlbum;
 }
 QString Song::toString()
 {
-    return  QString::fromStdString("id:" + to_string(id) + ", name:" + name.toStdString());
+    return QString ("id: %1, name: %2, duration: %3, artists: %4, album: %5")
+            .arg(QString::number(id), name, QString::number(duration), artists, album);
 }

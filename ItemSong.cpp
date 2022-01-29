@@ -11,7 +11,7 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
     layout->setSpacing(0);
 
     int item_song_stretchs[] = {2, 9, 5, 3};
-    QString titles[] = {QString::fromStdString(to_string(index + 1)), song.name, song.artists, QString::fromStdString(to_string(song.duration))};
+    QString titles[] = {QString::number(index + 1), song.name, song.artists, QString::number(song.duration)};
     for (int i = 0; i< 4 ; i++) {
         QLabel *item = new QLabel;
         if (i == 0)

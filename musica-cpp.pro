@@ -1,6 +1,8 @@
 QT       += core gui
 QT       += multimedia
 
+QMAKE_INFO_PLIST += $${TARGET}/default.plist
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -40,4 +42,5 @@ RESOURCES += \
     assets.qrc
 
 DISTFILES += \
+    default.plist \
     style.qss

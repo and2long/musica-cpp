@@ -50,7 +50,19 @@ BottomBar::BottomBar(QWidget *parent)
 
 void BottomBar::play()
 {
-    qDebug() << "播放";
+    if (playing)
+    {
+        player->pause();
+        playing = false;
+        btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+    }
+    else
+    {
+        player->play();
+        playing = true;
+        btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+    }
+
 }
 
 void BottomBar::onSongClickedListener(Song value)
@@ -65,5 +77,6 @@ void BottomBar::onSongClickedListener(Song value)
 
     player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));
     player->play();
-
+    playing = true;
+    btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
 }

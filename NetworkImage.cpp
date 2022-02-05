@@ -21,10 +21,13 @@ void NetworkImage::setImageUrl(const QString &szUrl)
     QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
 
-    QByteArray jpegData = reply->readAll();
-    QPixmap pixmap;
-    pixmap.loadFromData(jpegData);
-    pixmap = pixmap.scaled(width(), height(), Qt::KeepAspectRatio);
-    setPixmap(pixmap);
-    reply->deleteLater();
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        QByteArray jpegData = reply->readAll();
+        QPixmap pixmap;
+        pixmap.loadFromData(jpegData);
+        pixmap = pixmap.scaled(width(), height(), Qt::KeepAspectRatio);
+        setPixmap(pixmap);
+        reply->deleteLater();
+    }
 }

@@ -19,6 +19,8 @@ public slots:
     void play();
     // 歌曲列表点击事件
     void onSongClickedListener(Song value);
+    // 播放器错误
+    void onErrorOccurred(QMediaPlayer::Error error, const QString &errorString);
 
 signals:
 
@@ -37,6 +39,8 @@ private:
      void switchBtnStatus(bool status);
      // 当前歌曲
      Song song;
+     // 是否有错误
+     bool hasError;
 };
 
 #endif // BOTTOMBAR_H

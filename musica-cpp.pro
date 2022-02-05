@@ -20,6 +20,7 @@ SOURCES += \
     NetworkImage.cpp \
     SearchPage.cpp \
     Song.cpp \
+    Toast.cpp \
     TopBar.cpp \
     main.cpp
 
@@ -32,6 +33,7 @@ HEADERS += \
     NetworkImage.h \
     SearchPage.h \
     Song.h \
+    Toast.h \
     TopBar.h \
     constants.h
 

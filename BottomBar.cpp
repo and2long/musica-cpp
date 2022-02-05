@@ -5,6 +5,7 @@
 #include "ClickedLabel.h"
 #include <QAudioOutput>
 #include "NetworkImage.h"
+#include "Toast.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)
@@ -43,31 +44,45 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     audioOutput = new QAudioOutput;
     audioOutput->setVolume(50);
     player->setAudioOutput(audioOutput);
-//    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
+    connect(player, &QMediaPlayer::errorOccurred, this, &BottomBar::onErrorOccurred);
+}
+
+void BottomBar::onErrorOccurred(QMediaPlayer::Error error, const QString &errorString)
+{
+    qDebug() << error << errorString;
+    hasError = true;
+    playing = false;
+    switchBtnStatus(playing);
 }
 
 void BottomBar::play()
 {
-    if (song.id != 0) {
+    if (song.id != 0 && !hasError) {
         if (playing)
         {
             player->pause();
             playing = false;
-            btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
         }
         else
         {
             player->play();
             playing = true;
-            btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
             qDebug() << song.toString();
         }
+        switchBtnStatus(playing);
     }
 }
 
 void BottomBar::onSongClickedListener(Song value)
 {
     qDebug() << value.toString();
+
+    hasError = false;
+
+    if (song.id == value.id)
+    {
+        return;
+    }
 
     song = value;
 
@@ -80,7 +95,19 @@ void BottomBar::onSongClickedListener(Song value)
     player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));
     player->play();
     playing = true;
-    btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+    switchBtnStatus(playing);
 
     album->setImageUrl(song.album);
+}
+
+void BottomBar::switchBtnStatus(bool status)
+{
+    if (status)
+    {
+        btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+    }
+    else
+    {
+        btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+    }
 }

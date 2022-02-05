@@ -46,23 +46,16 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     player->setAudioOutput(audioOutput);
     connect(player, &QMediaPlayer::errorOccurred, this, &BottomBar::errorOccurred);
     connect(player, &QMediaPlayer::bufferProgressChanged, this, &BottomBar::bufferProgressChanged);
-
-    timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &BottomBar::timeout);
+    connect(player, &QMediaPlayer::positionChanged, this, &BottomBar::positionChanged);
 
 }
 
-void BottomBar::timeout()
+void BottomBar::positionChanged(qint64 position)
 {
-    if (curDuration < song.duration)
+    if (position <= song.duration)
     {
-        curDuration = curDuration + INTERVAL;
+        songDuration->setText(Song::formatDuration(position) + " / " + Song::formatDuration(song.duration));
     }
-    else
-    {
-        timer->stop();
-    }
-    songDuration->setText(Song::formatDuration(curDuration) + " / " + Song::formatDuration(song.duration));
 }
 
 void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorString)
@@ -71,7 +64,6 @@ void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorStr
     hasError = true;
     playing = false;
     switchBtnStatus(playing);
-    timer->stop();
 }
 
 void BottomBar::bufferProgressChanged(float progress)
@@ -86,14 +78,12 @@ void BottomBar::play()
         {
             player->pause();
             playing = false;
-            timer->stop();
         }
         else
         {
             player->play();
             playing = true;
             qDebug() << song.toString();
-            timer->start(INTERVAL);
         }
         switchBtnStatus(playing);
     }
@@ -104,11 +94,6 @@ void BottomBar::onSongClickedListener(Song value)
     qDebug() << value.toString();
 
     hasError = false;
-    curDuration = 0;
-    if (!timer->isActive())
-    {
-        timer->start(INTERVAL);
-    }
 
     if (song.id == value.id)
     {

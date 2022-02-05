@@ -19,16 +19,14 @@ public slots:
     void play();
     // 歌曲列表点击事件
     void onSongClickedListener(Song value);
-    // 播放器错误
+    // 播放器事件
     void errorOccurred(QMediaPlayer::Error error, const QString &errorString);
-    void timeout();
     void bufferProgressChanged(float progress);
+    void positionChanged(qint64 position);
 
 signals:
 
 private:
-    // 定时器间隔
-    static const int INTERVAL = 500;
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
@@ -37,8 +35,6 @@ private:
     QLabel *songDuration;
     ClickedLabel *btnPlay;
 
-    QTimer *timer;
-    int curDuration = 0;
     // 是否正在播放
     bool playing;
     // 切换播放按钮状态

@@ -80,3 +80,27 @@ BottomBar #album{
     border-radius: 5px;
 }
 
+/*进度条*/
+QSlider::groove:horizontal {
+    height: 2px;
+    background: translate;
+    margin-top: 0px;
+}
+QSlider::sub-page:horizontal {
+    background: #c2473a;
+    height: 2px;
+}
+QSlider::add-page:horizontal {
+    background: #575757;
+    height: 2px;
+}
+QSlider::handle:horizontal::hover {
+    background: #c2473a;
+    margin-top: -3px;
+    margin-bottom: -3px;
+}
+QSlider::handle:horizontal {
+    background: #c2473a;
+    width: 8px;
+    border-radius: 4px;
+}

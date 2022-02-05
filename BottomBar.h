@@ -6,7 +6,9 @@
 #include <QLabel>
 #include "ClickedLabel.h"
 #include <QMediaPlayer>
+#include <QAudioOutput>
 #include "NetworkImage.h"
+#include <QSlider>
 
 class BottomBar : public QWidget
 {
@@ -34,6 +36,7 @@ private:
     QLabel *songName;
     QLabel *songDuration;
     ClickedLabel *btnPlay;
+    QSlider *slider;
 
     // 是否正在播放
     bool playing;

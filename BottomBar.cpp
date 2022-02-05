@@ -1,11 +1,5 @@
 ﻿#include "BottomBar.h"
 #include "constants.h"
-#include <QLabel>
-#include "Song.h"
-#include "ClickedLabel.h"
-#include <QAudioOutput>
-#include "NetworkImage.h"
-#include <QTimer>
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)
@@ -39,6 +33,11 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 20);
     QObject::connect(btnPlay, &ClickedLabel::clicked,this, &BottomBar::play);
 
+    // 进度条
+    slider = new QSlider(Qt::Orientation::Horizontal, this);
+    slider->setFixedWidth(WINDOW_WIDTH);
+    slider->move(0, 0);
+
     // 初始化播放器
     player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
@@ -47,7 +46,8 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     connect(player, &QMediaPlayer::errorOccurred, this, &BottomBar::errorOccurred);
     connect(player, &QMediaPlayer::bufferProgressChanged, this, &BottomBar::bufferProgressChanged);
     connect(player, &QMediaPlayer::positionChanged, this, &BottomBar::positionChanged);
-
+    connect(player, &QMediaPlayer::positionChanged, slider, &QSlider::setValue);
+    connect(slider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
 }
 
 void BottomBar::positionChanged(qint64 position)
@@ -101,6 +101,8 @@ void BottomBar::onSongClickedListener(Song value)
     }
 
     song = value;
+
+    slider->setMaximum(song.duration);
 
     songName->setText(value.name);
     songName->adjustSize();

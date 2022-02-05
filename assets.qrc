@@ -5,6 +5,8 @@
     <qresource prefix="/images">
         <file>ic_play.svg</file>
         <file>ic_pause.svg</file>
+        <file>ic_music_on.svg</file>
+        <file>ic_music_off.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>search_result.json</file>

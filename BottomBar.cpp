@@ -12,31 +12,32 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     // 专辑图片
     album = new NetworkImage(this);
     album->setFixedSize(42, 42);
-    album->move(8,8);
+    album->move(8, 12);
 
     // 歌曲名
     songName = new QLabel(this);
     songName->setStyleSheet("color: #ccc");
-    songName->move(61, 10);
+    songName->move(61, 14);
     songName->setText("");
 
     // 进度和时长
     songDuration = new QLabel(this);
-    songDuration->move(61, 32);
-    songDuration->setStyleSheet("color: grey");
+    songDuration->move(61, 36);
+    songDuration->setStyleSheet("color: grey; font-size: 12px");
     songDuration->setText("");
 
     // 播放按钮
     btnPlay = new ClickedLabel(this);
     btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
     btnPlay->setFixedSize(40, 40);
-    btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 20);
+    btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 22);
     QObject::connect(btnPlay, &ClickedLabel::clicked,this, &BottomBar::play);
 
     // 进度条
     slider = new QSlider(Qt::Orientation::Horizontal, this);
     slider->setFixedWidth(WINDOW_WIDTH);
     slider->setEnabled(false);
+    slider->setFixedHeight(8);
 
     // 初始化播放器
     player = new QMediaPlayer;

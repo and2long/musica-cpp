@@ -12,6 +12,7 @@ public:
 
 public slots:
     void onItemClicked(Song song);
+    void onSearch(QString keyword);
 
 signals:
     void itemClicked(Song song);

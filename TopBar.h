@@ -2,6 +2,7 @@
 #define TOPBAR_H
 
 #include <QWidget>
+#include <QLineEdit>
 
 class TopBar : public QWidget
 {
@@ -9,7 +10,13 @@ class TopBar : public QWidget
 public:
     explicit TopBar(QWidget *parent = nullptr);
 
+private:
+    QLineEdit *searchBox;
+
 signals:
+    void search(QString keyword);
+public slots:
+    void onSearch();
 
 };
 

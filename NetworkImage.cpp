@@ -17,7 +17,6 @@ void NetworkImage::setImageUrl(const QString &szUrl)
     QNetworkAccessManager manager;
     QEventLoop loop;
 
-    qDebug() << "Reading picture form " << url;
     QNetworkReply *reply = manager.get(QNetworkRequest(url));
     QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();

@@ -12,6 +12,7 @@ SearchPage::SearchPage(QWidget *parent)
     : QWidget{parent}
 {
     setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
+
     QListWidget *items = new QListWidget(this);
     items->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
 
@@ -53,4 +54,9 @@ SearchPage::SearchPage(QWidget *parent)
 void SearchPage::onItemClicked(Song song)
 {
     emit itemClicked(song);
+}
+
+void SearchPage::onSearch(QString keyword)
+{
+    qDebug() << "搜索关键字：" << keyword;
 }

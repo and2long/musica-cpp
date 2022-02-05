@@ -5,8 +5,8 @@
 #include "ClickedLabel.h"
 #include <QAudioOutput>
 
-BottomBar::BottomBar(QWidget *parent)
-    : QWidget{parent}
+BottomBar::BottomBar(Song s, QWidget *parent)
+    : QWidget{parent}, song(s)
 {
     // 背景
     QLabel *bg = new QLabel(this);
@@ -50,24 +50,28 @@ BottomBar::BottomBar(QWidget *parent)
 
 void BottomBar::play()
 {
-    if (playing)
-    {
-        player->pause();
-        playing = false;
-        btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+    if (song.id != 0) {
+        if (playing)
+        {
+            player->pause();
+            playing = false;
+            btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+        }
+        else
+        {
+            player->play();
+            playing = true;
+            btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+            qDebug() << song.toString();
+        }
     }
-    else
-    {
-        player->play();
-        playing = true;
-        btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
-    }
-
 }
 
 void BottomBar::onSongClickedListener(Song value)
 {
     qDebug() << value.toString();
+
+    song = value;
 
     songName->setText(value.name);
     songName->adjustSize();

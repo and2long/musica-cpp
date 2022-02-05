@@ -11,7 +11,7 @@ class BottomBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit BottomBar(QWidget *parent = nullptr);
+    explicit BottomBar(Song song, QWidget *parent = nullptr);
 
 public slots:
     // 播放按钮的槽函数
@@ -34,6 +34,8 @@ private:
      bool playing;
      // 切换播放按钮状态
      void switchBtnStatus(bool status);
+     // 当前歌曲
+     Song song;
 };
 
 #endif // BOTTOMBAR_H

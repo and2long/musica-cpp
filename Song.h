@@ -20,6 +20,7 @@ public:
     QString album;
     Song(int id, QString name, QString artists, int duration, QString album);
     Song(QJsonObject obj);
+    Song();
 
     QString toString();
 };

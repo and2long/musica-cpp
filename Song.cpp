@@ -11,6 +11,10 @@ Song::Song(int songId, QString songName, QString songArtists, int songDuration, 
     album = songAlbum;
 };
 
+Song::Song(){
+    id = 0;
+}
+
 Song::Song(QJsonObject song)
 {
     int songId = song.value("id").toInt();

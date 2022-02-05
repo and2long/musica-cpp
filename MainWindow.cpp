@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     SearchPage *searchPage = new SearchPage(this);
     searchPage->move(LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
 
-    BottomBar *bottomBar = new BottomBar(this);
+    BottomBar *bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
 
     connect(searchPage, SIGNAL(itemClicked(Song)), bottomBar, SLOT(onSongClickedListener(Song)));

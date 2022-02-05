@@ -36,7 +36,7 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     // 进度条
     slider = new QSlider(Qt::Orientation::Horizontal, this);
     slider->setFixedWidth(WINDOW_WIDTH);
-    slider->move(0, 0);
+    slider->setEnabled(false);
 
     // 初始化播放器
     player = new QMediaPlayer;
@@ -128,4 +128,5 @@ void BottomBar::switchBtnStatus(bool status)
     {
         btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
     }
+    slider->setEnabled(status);
 }

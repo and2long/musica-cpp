@@ -4,6 +4,7 @@
 #include "Song.h"
 #include "ClickedLabel.h"
 #include <QAudioOutput>
+#include "NetworkImage.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)
@@ -14,21 +15,18 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     bg->setObjectName("bg");
 
     // 专辑图片
-    album = new QLabel(this);
-    album->setObjectName("album");
+    album = new NetworkImage(this);
     album->setFixedSize(42, 42);
     album->move(8,8);
 
     // 歌曲名
     songName = new QLabel(this);
-    songName->setObjectName("songName");
     songName->setStyleSheet("color: #ccc");
     songName->move(61, 10);
     songName->setText("");
 
     // 进度和时长
     songDuration = new QLabel(this);
-    songDuration->setObjectName("songDuration");
     songDuration->move(61, 32);
     songDuration->setStyleSheet("color: grey");
     songDuration->setText("");
@@ -83,4 +81,6 @@ void BottomBar::onSongClickedListener(Song value)
     player->play();
     playing = true;
     btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+
+    album->setImageUrl(song.album);
 }

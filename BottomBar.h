@@ -6,6 +6,7 @@
 #include <QLabel>
 #include "ClickedLabel.h"
 #include <QMediaPlayer>
+#include "NetworkImage.h"
 
 class BottomBar : public QWidget
 {
@@ -25,7 +26,7 @@ private:
 
      QMediaPlayer *player;
      QAudioOutput *audioOutput;
-     QLabel *album;
+     NetworkImage *album;
      QLabel *songName;
      QLabel *songDuration;
      ClickedLabel *btnPlay;

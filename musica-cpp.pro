@@ -17,6 +17,7 @@ SOURCES += \
     ItemSong.cpp \
     LeftMenus.cpp \
     MainWindow.cpp \
+    NetworkImage.cpp \
     SearchPage.cpp \
     Song.cpp \
     TopBar.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     ItemSong.h \
     LeftMenus.h \
     MainWindow.h \
+    NetworkImage.h \
     SearchPage.h \
     Song.h \
     TopBar.h \

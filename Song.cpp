@@ -54,7 +54,7 @@ QString Song::toString()
             .arg(QString::number(id), name, QString::number(duration), artists, album);
 }
 
-QString Song::formatDuration()
+QString Song::formatDuration(int duration)
 {
     int d = duration / 1000;
     int min = d / 60;

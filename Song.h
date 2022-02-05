@@ -23,7 +23,7 @@ public:
     Song();
 
     QString toString();
-    QString formatDuration();
+    static QString formatDuration(int duration);
 };
 
 #endif // SONG_H

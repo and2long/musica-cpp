@@ -5,7 +5,7 @@
 #include "ClickedLabel.h"
 #include <QAudioOutput>
 #include "NetworkImage.h"
-#include "Toast.h"
+#include <QTimer>
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)
@@ -44,15 +44,39 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     audioOutput = new QAudioOutput;
     audioOutput->setVolume(50);
     player->setAudioOutput(audioOutput);
-    connect(player, &QMediaPlayer::errorOccurred, this, &BottomBar::onErrorOccurred);
+    connect(player, &QMediaPlayer::errorOccurred, this, &BottomBar::errorOccurred);
+    connect(player, &QMediaPlayer::bufferProgressChanged, this, &BottomBar::bufferProgressChanged);
+
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &BottomBar::timeout);
+
 }
 
-void BottomBar::onErrorOccurred(QMediaPlayer::Error error, const QString &errorString)
+void BottomBar::timeout()
+{
+    if (curDuration < song.duration)
+    {
+        curDuration = curDuration + INTERVAL;
+    }
+    else
+    {
+        timer->stop();
+    }
+    songDuration->setText(Song::formatDuration(curDuration) + " / " + Song::formatDuration(song.duration));
+}
+
+void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorString)
 {
     qDebug() << error << errorString;
     hasError = true;
     playing = false;
     switchBtnStatus(playing);
+    timer->stop();
+}
+
+void BottomBar::bufferProgressChanged(float progress)
+{
+    qDebug() << progress;
 }
 
 void BottomBar::play()
@@ -62,12 +86,14 @@ void BottomBar::play()
         {
             player->pause();
             playing = false;
+            timer->stop();
         }
         else
         {
             player->play();
             playing = true;
             qDebug() << song.toString();
+            timer->start(INTERVAL);
         }
         switchBtnStatus(playing);
     }
@@ -78,6 +104,11 @@ void BottomBar::onSongClickedListener(Song value)
     qDebug() << value.toString();
 
     hasError = false;
+    curDuration = 0;
+    if (!timer->isActive())
+    {
+        timer->start(INTERVAL);
+    }
 
     if (song.id == value.id)
     {
@@ -89,7 +120,7 @@ void BottomBar::onSongClickedListener(Song value)
     songName->setText(value.name);
     songName->adjustSize();
 
-    songDuration->setText("00:00 / " + value.formatDuration());
+    songDuration->setText("00:00 / " + Song::formatDuration(song.duration));
     songDuration->adjustSize();
 
     player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));

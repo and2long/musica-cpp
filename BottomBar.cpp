@@ -24,14 +24,14 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     songName->setObjectName("songName");
     songName->setStyleSheet("color: #ccc");
     songName->move(61, 10);
-    songName->setText("孤勇者 - 陈奕迅");
+    songName->setText("");
 
     // 进度和时长
     songDuration = new QLabel(this);
     songDuration->setObjectName("songDuration");
     songDuration->move(61, 32);
     songDuration->setStyleSheet("color: grey");
-    songDuration->setText("02:00 / 04:16");
+    songDuration->setText("");
 
     // 播放按钮
     btnPlay = new ClickedLabel(this);
@@ -76,7 +76,7 @@ void BottomBar::onSongClickedListener(Song value)
     songName->setText(value.name);
     songName->adjustSize();
 
-    songDuration->setText(QString::number(value.duration));
+    songDuration->setText("00:00 / " + value.formatDuration());
     songDuration->adjustSize();
 
     player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));

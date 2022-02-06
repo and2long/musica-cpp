@@ -52,5 +52,6 @@ RESOURCES += \
     assets.qrc
 
 DISTFILES += \
+    README.md \
     default.plist \
     style.qss

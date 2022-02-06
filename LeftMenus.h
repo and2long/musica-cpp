@@ -10,10 +10,10 @@ class LeftMenus : public QWidget
 public:
     explicit LeftMenus(QWidget *parent = nullptr);
 private:
-    int curIndex;
     QListWidget *items;
 
 signals:
+    void menuClicked(int index);
 
 public slots:
     void itemClicked(QListWidgetItem *item);

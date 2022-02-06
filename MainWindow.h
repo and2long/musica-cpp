@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QStackedLayout>
 
 class MainWindow : public QWidget
 {
@@ -10,5 +11,10 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+public slots:
+    void menuClicked(int index);
+
+private:
+    QStackedLayout *layout;
 };
 #endif // MAINWINDOW_H

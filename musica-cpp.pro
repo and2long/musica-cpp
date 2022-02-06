@@ -14,6 +14,8 @@ CONFIG += c++11
 SOURCES += \
     BottomBar.cpp \
     ClickedLabel.cpp \
+    DownloadPage.cpp \
+    FavoritePage.cpp \
     ItemSong.cpp \
     LeftMenus.cpp \
     MainWindow.cpp \
@@ -27,6 +29,8 @@ SOURCES += \
 HEADERS += \
     BottomBar.h \
     ClickedLabel.h \
+    DownloadPage.h \
+    FavoritePage.h \
     ItemSong.h \
     LeftMenus.h \
     MainWindow.h \

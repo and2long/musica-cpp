@@ -10,7 +10,6 @@ LeftMenus::LeftMenus(QWidget *parent)
     header->setFixedSize(200, 100);
     header->setAlignment(Qt::AlignCenter);
 
-
     items = new QListWidget(this);
     items->move(0, 100);
     items->setFixedSize(LEFT_MENUS_WIDTH, WINDOW_HEIGHT);
@@ -30,6 +29,6 @@ LeftMenus::LeftMenus(QWidget *parent)
 
 void LeftMenus::itemClicked(QListWidgetItem *item)
 {
-    curIndex = item->type();
-    qDebug() << curIndex;
+    int index = item->type();
+    emit menuClicked(index);
 }

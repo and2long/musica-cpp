@@ -1,11 +1,23 @@
 #include "FavoritePage.h"
 #include "constants.h"
 #include <QLabel>
+#include <QSqlQuery>
+#include <QVariant>
 
 FavoritePage::FavoritePage(QWidget *parent)
     : QWidget{parent}
 {
     setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
-    QLabel *tip = new QLabel("我的收藏", this);
-    tip->setAlignment(Qt::AlignCenter);
+
+    QSqlQuery query;
+    query.exec("select * from favorites");
+    while (query.next())
+    {
+        int id = query.value("id").toInt();
+        int sid = query.value("sid").toInt();
+        int duration = query.value("duration").toInt();
+        QString name = query.value("name").toString();
+
+        qDebug() << id << " " << sid << " " << name << " " << duration;
+    }
 }

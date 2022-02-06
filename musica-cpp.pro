@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += multimedia
+QT       += sql
 
 QMAKE_INFO_PLIST += $${TARGET}/default.plist
 
@@ -39,6 +40,7 @@ HEADERS += \
     Song.h \
     Toast.h \
     TopBar.h \
+    connection.h \
     constants.h
 
 # Default rules for deployment.

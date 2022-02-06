@@ -6,10 +6,12 @@
 #include "DownloadPage.h"
 #include "FavoritePage.h"
 #include "BottomBar.h"
-#include <QStackedLayout>
+#include "connection.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
+    createConnection();
+
     setWindowTitle("MUSICA");
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     // 左侧菜单
@@ -41,10 +43,12 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
 }
+
 void MainWindow::menuClicked(int index)
 {
     layout->setCurrentIndex(index);
 }
+
 MainWindow::~MainWindow()
 {
 }

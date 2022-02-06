@@ -6,6 +6,7 @@
 .LeftMenus QLabel {
     background-color: #202020;
     font-size: 20px;
+    color: white;
 }
 .LeftMenus QListWidget {
     color: #AAA;
@@ -100,9 +101,10 @@ QSlider::handle:horizontal::hover {
     background: #c2473a;
     margin-top: -3px;
     margin-bottom: -3px;
+    width: 8px;
 }
 QSlider::handle:horizontal {
     background: #c2473a;
-    width: 8px;
+    width: 1px;
     border-radius: 4px;
 }

@@ -1,14 +1,14 @@
-#include "CommonUtils.h"
+#include "CommonUtil.h"
 #include <sstream>
 #include <iomanip>
 #include <string>
 using namespace std;
 
-CommonUtils::CommonUtils()
+CommonUtil::CommonUtil()
 {
 
 }
-QString CommonUtils::formatNum(int num)
+QString CommonUtil::formatNum(int num)
 {
     if (num >= 100)
     {
@@ -21,7 +21,7 @@ QString CommonUtils::formatNum(int num)
     return QString::fromStdString(ss);
 }
 
-QString CommonUtils::formatDuration(int duration)
+QString CommonUtil::formatDuration(int duration)
 {
     int d = duration / 1000;
     int min = d / 60;

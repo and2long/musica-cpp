@@ -1,11 +1,11 @@
 #include "MainWindow.h"
-#include <LeftMenus.h>
-#include "constants.h"
+#include "LeftMenus.h"
 #include "TopBar.h"
 #include "SearchPage.h"
 #include "DownloadPage.h"
 #include "FavoritePage.h"
 #include "BottomBar.h"
+#include "constants.h"
 #include "connection.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)

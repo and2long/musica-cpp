@@ -13,37 +13,35 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    BottomBar.cpp \
-    ClickedLabel.cpp \
-    DownloadPage.cpp \
-    FavoritePage.cpp \
-    ItemSong.cpp \
-    LeftMenus.cpp \
-    MainWindow.cpp \
-    NetworkImage.cpp \
-    SearchPage.cpp \
-    Song.cpp \
-    Toast.cpp \
-    TopBar.cpp \
     main.cpp \
-    tools/CommonUtils.cpp
+    widgets/MainWindow.cpp \
+    widgets/BottomBar.cpp \
+    widgets/ClickedLabel.cpp \
+    widgets/DownloadPage.cpp \
+    widgets/FavoritePage.cpp \
+    widgets/ItemSong.cpp \
+    widgets/LeftMenus.cpp \
+    widgets/NetworkImage.cpp \
+    widgets/SearchPage.cpp \
+    widgets/Song.cpp \
+    widgets/TopBar.cpp \
+    utils/CommonUtil.cpp
 
 HEADERS += \
-    BottomBar.h \
-    ClickedLabel.h \
-    DownloadPage.h \
-    FavoritePage.h \
-    ItemSong.h \
-    LeftMenus.h \
-    MainWindow.h \
-    NetworkImage.h \
-    SearchPage.h \
-    Song.h \
-    Toast.h \
-    TopBar.h \
     connection.h \
     constants.h \
-    tools/CommonUtils.h
+    widgets/MainWindow.h \
+    widgets/BottomBar.h \
+    widgets/ClickedLabel.h \
+    widgets/DownloadPage.h \
+    widgets/FavoritePage.h \
+    widgets/ItemSong.h \
+    widgets/LeftMenus.h \
+    widgets/NetworkImage.h \
+    widgets/SearchPage.h \
+    widgets/Song.h \
+    widgets/TopBar.h \
+    utils/CommonUtil.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

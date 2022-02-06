@@ -1,17 +1,17 @@
 #include "ItemSong.h"
 #include <QHBoxLayout>
 #include <QLabel>
-#include "tools/CommonUtils.h"
+#include "utils/CommonUtil.h"
 
 ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, song(song)
 {
-    QHBoxLayout  *layout = new QHBoxLayout;
+    QHBoxLayout *layout = new QHBoxLayout;
     setLayout(layout);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
 
     QList stretchs = {2, 9, 5, 3};
-    QStringList titles = {CommonUtils::formatNum(index + 1), song.name, song.artists, CommonUtils::formatDuration(song.duration)};
+    QStringList titles = {CommonUtil::formatNum(index + 1), song.name, song.artists, CommonUtil::formatDuration(song.duration)};
     for (int i = 0; i< stretchs.length() ; i++) {
         QLabel *item = new QLabel;
         if (i == 0)

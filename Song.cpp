@@ -1,8 +1,5 @@
 #include "Song.h"
-#include <string>
 #include <QJsonArray>
-#include <sstream>
-#include <iomanip>
 
 Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum)
 {
@@ -54,20 +51,3 @@ QString Song::toString()
             .arg(QString::number(id), name, QString::number(duration), artists, album);
 }
 
-QString Song::formatDuration(int duration)
-{
-    int d = duration / 1000;
-    int min = d / 60;
-    int sec = d % 60;
-
-    stringstream minss;
-    minss << setw(2) << setfill('0') << min;
-    string mins;
-    minss >> mins;
-    stringstream secss;
-    secss << setw(2) << setfill('0') << sec;
-    string secs;
-    secss >> secs;
-
-    return QString::fromStdString(mins.append(":").append(secs));
-}

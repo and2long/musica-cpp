@@ -1,8 +1,5 @@
 #ifndef SONG_H
 #define SONG_H
-#include <QString>
-#include <string>
-using namespace std;
 #include <QJsonObject>
 
 class  Song
@@ -23,7 +20,6 @@ public:
     Song();
 
     QString toString();
-    static QString formatDuration(int duration);
 };
 
 #endif // SONG_H

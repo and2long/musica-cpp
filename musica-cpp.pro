@@ -25,7 +25,8 @@ SOURCES += \
     Song.cpp \
     Toast.cpp \
     TopBar.cpp \
-    main.cpp
+    main.cpp \
+    tools/CommonUtils.cpp
 
 HEADERS += \
     BottomBar.h \
@@ -41,7 +42,8 @@ HEADERS += \
     Toast.h \
     TopBar.h \
     connection.h \
-    constants.h
+    constants.h \
+    tools/CommonUtils.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,5 +1,6 @@
 ﻿#include "BottomBar.h"
 #include "constants.h"
+#include "tools/CommonUtils.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)
@@ -55,7 +56,7 @@ void BottomBar::positionChanged(qint64 position)
 {
     if (position <= song.duration)
     {
-        songDuration->setText(Song::formatDuration(position) + " / " + Song::formatDuration(song.duration));
+        songDuration->setText(CommonUtils::formatDuration(position) + " / " + CommonUtils::formatDuration(song.duration));
     }
 }
 
@@ -108,7 +109,7 @@ void BottomBar::onSongClickedListener(Song value)
     songName->setText(value.name);
     songName->adjustSize();
 
-    songDuration->setText("00:00 / " + Song::formatDuration(song.duration));
+    songDuration->setText("00:00 / " + CommonUtils::formatDuration(song.duration));
     songDuration->adjustSize();
 
     player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));

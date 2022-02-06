@@ -2,14 +2,22 @@
 #define LEFTMENUS_H
 
 #include <QWidget>
+#include <QListWidgetItem>
 
 class LeftMenus : public QWidget
 {
     Q_OBJECT
 public:
     explicit LeftMenus(QWidget *parent = nullptr);
+private:
+    int curIndex;
+    QListWidget *items;
 
 signals:
+
+public slots:
+    void itemClicked(QListWidgetItem *item);
+
 
 };
 

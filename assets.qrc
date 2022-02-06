@@ -1,14 +1,14 @@
 <RCC>
-    <qresource prefix="/qss">
-        <file>style.qss</file>
-    </qresource>
-    <qresource prefix="/images">
-        <file>ic_play.svg</file>
-        <file>ic_pause.svg</file>
-        <file>ic_music_on.svg</file>
-        <file>ic_music_off.svg</file>
-    </qresource>
     <qresource prefix="/">
-        <file>search_result.json</file>
+        <file>templates/search_result.json</file>
+        <file>qss/style.qss</file>
+        <file>images/ic_download_off.svg</file>
+        <file>images/ic_play.svg</file>
+        <file>images/ic_pause.svg</file>
+        <file>images/ic_music_on.svg</file>
+        <file>images/ic_music_off.svg</file>
+        <file>images/ic_favorite_on.svg</file>
+        <file>images/ic_favorite_off.svg</file>
+        <file>images/ic_download_on.svg</file>
     </qresource>
 </RCC>

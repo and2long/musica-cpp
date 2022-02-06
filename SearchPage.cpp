@@ -53,7 +53,7 @@ void SearchPage::setData(QByteArray data)
 
 void SearchPage::setTemplates()
 {
-    QFile f(":/search_result.json");
+    QFile f(":/templates/search_result.json");
 
     if(!f.open(QIODevice::ReadOnly))
     {

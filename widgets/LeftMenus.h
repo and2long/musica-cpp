@@ -9,6 +9,8 @@ class LeftMenus : public QWidget
     Q_OBJECT
 public:
     explicit LeftMenus(QWidget *parent = nullptr);
+    void setCurrentRow(int index);
+
 private:
     QListWidget *items;
 

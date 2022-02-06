@@ -27,6 +27,11 @@ LeftMenus::LeftMenus(QWidget *parent)
     connect(items, &QListWidget::itemClicked, this, &LeftMenus::itemClicked);
 }
 
+void LeftMenus::setCurrentRow(int index)
+{
+    items->setCurrentRow(index);
+}
+
 void LeftMenus::itemClicked(QListWidgetItem *item)
 {
     int index = item->type();

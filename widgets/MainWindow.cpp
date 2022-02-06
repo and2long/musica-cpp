@@ -1,5 +1,4 @@
 #include "MainWindow.h"
-#include "LeftMenus.h"
 #include "TopBar.h"
 #include "SearchPage.h"
 #include "DownloadPage.h"
@@ -15,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     setWindowTitle("MUSICA");
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     // 左侧菜单
-    LeftMenus *leftMenus = new LeftMenus(this);
+    leftMenus = new LeftMenus(this);
     // 顶部快捷搜索栏
     TopBar *topBar =  new TopBar(this);
     topBar->move(LEFT_MENUS_WIDTH, 0);
@@ -41,12 +40,19 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     // 连接
     connect(searchPage, &SearchPage::itemClicked, bottomBar, &BottomBar::onSongClickedListener);
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
+    connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
 }
 
 void MainWindow::menuClicked(int index)
 {
     layout->setCurrentIndex(index);
+}
+
+void MainWindow::onSearch()
+{
+    layout->setCurrentIndex(0);
+    leftMenus->setCurrentRow(0);
 }
 
 MainWindow::~MainWindow()

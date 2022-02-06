@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QStackedLayout>
+#include "LeftMenus.h"
 
 class MainWindow : public QWidget
 {
@@ -13,8 +14,10 @@ public:
     ~MainWindow();
 public slots:
     void menuClicked(int index);
+    void onSearch();
 
 private:
+    LeftMenus *leftMenus;
     QStackedLayout *layout;
 };
 #endif // MAINWINDOW_H

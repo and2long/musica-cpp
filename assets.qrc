@@ -12,5 +12,7 @@
         <file>images/ic_download_on.svg</file>
         <file>images/ic_musiclist_off.svg</file>
         <file>images/ic_musiclist_on.svg</file>
+        <file>images/ic_volume.svg</file>
+        <file>images/ic_volume_off.svg</file>
     </qresource>
 </RCC>

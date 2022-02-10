@@ -41,6 +41,13 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     btnList->setScaledContents(true);
     btnList->move(WINDOW_WIDTH - 50, BOTTOM_BAR_HEIGHT / 2 - 18);
 
+    // 音量按钮
+    btnVolume = new ClickedLabel(this);
+    btnVolume->setPixmap(QPixmap(":/images/ic_volume.svg"));
+    btnVolume->setFixedSize(30, 30);
+    btnVolume->setScaledContents(true);
+    btnVolume->move(WINDOW_WIDTH - 90, BOTTOM_BAR_HEIGHT / 2 - 18);
+
     // 进度条
     slider = new QSlider(Qt::Orientation::Horizontal, this);
     slider->setFixedWidth(WINDOW_WIDTH);

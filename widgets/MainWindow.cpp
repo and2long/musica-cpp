@@ -49,6 +49,16 @@ void MainWindow::menuClicked(int index)
     layout->setCurrentIndex(index);
 }
 
+void MainWindow::onBtnVolumeHovered()
+{
+
+}
+
+void MainWindow::onBtnVolumeUnHovered()
+{
+
+}
+
 void MainWindow::onSearch()
 {
     layout->setCurrentIndex(0);

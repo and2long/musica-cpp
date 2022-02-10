@@ -25,7 +25,8 @@ SOURCES += \
     widgets/SearchPage.cpp \
     widgets/Song.cpp \
     widgets/TopBar.cpp \
-    utils/CommonUtil.cpp
+    utils/CommonUtil.cpp \
+    widgets/VolumeButton.cpp
 
 HEADERS += \
     connection.h \
@@ -41,7 +42,8 @@ HEADERS += \
     widgets/SearchPage.h \
     widgets/Song.h \
     widgets/TopBar.h \
-    utils/CommonUtil.h
+    utils/CommonUtil.h \
+    widgets/VolumeButton.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

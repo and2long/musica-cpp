@@ -1,9 +1,8 @@
 #include "ClickedLabel.h"
 #include <QLabel>
 
-ClickedLabel::ClickedLabel(QWidget *parent, int index) : QLabel{parent}, index(index)
+ClickedLabel::ClickedLabel(QWidget *parent) : QLabel{parent}
 {
-
 }
 
 void ClickedLabel::mouseReleaseEvent(QMouseEvent *ev)

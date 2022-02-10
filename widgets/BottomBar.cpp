@@ -42,7 +42,7 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     btnList->move(WINDOW_WIDTH - 50, BOTTOM_BAR_HEIGHT / 2 - 18);
 
     // 音量按钮
-    btnVolume = new ClickedLabel(this);
+    btnVolume = new VolumeButton(this);
     btnVolume->setPixmap(QPixmap(":/images/ic_volume.svg"));
     btnVolume->setFixedSize(30, 30);
     btnVolume->setScaledContents(true);

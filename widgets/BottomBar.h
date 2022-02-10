@@ -9,12 +9,14 @@
 #include <QAudioOutput>
 #include "NetworkImage.h"
 #include <QSlider>
+#include "VolumeButton.h"
 
 class BottomBar : public QWidget
 {
     Q_OBJECT
 public:
     explicit BottomBar(Song song, QWidget *parent = nullptr);
+    VolumeButton *btnVolume;
 
 public slots:
     // 播放按钮的槽函数
@@ -29,7 +31,6 @@ public slots:
 signals:
 
 private:
-
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
     NetworkImage *album;
@@ -37,7 +38,6 @@ private:
     QLabel *songDuration;
     ClickedLabel *btnPlay;
     ClickedLabel *btnList;
-    ClickedLabel *btnVolume;
     QSlider *slider;
 
     // 是否正在播放

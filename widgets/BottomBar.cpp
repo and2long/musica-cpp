@@ -34,6 +34,13 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 22);
     QObject::connect(btnPlay, &ClickedLabel::clicked,this, &BottomBar::play);
 
+    // 歌曲列表按钮
+    btnList = new ClickedLabel(this);
+    btnList->setPixmap(QPixmap(":/images/ic_musiclist_off.svg"));
+    btnList->setFixedSize(30, 30);
+    btnList->setScaledContents(true);
+    btnList->move(WINDOW_WIDTH - 50, BOTTOM_BAR_HEIGHT / 2 - 18);
+
     // 进度条
     slider = new QSlider(Qt::Orientation::Horizontal, this);
     slider->setFixedWidth(WINDOW_WIDTH);

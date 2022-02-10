@@ -36,6 +36,7 @@ private:
     QLabel *songName;
     QLabel *songDuration;
     ClickedLabel *btnPlay;
+    ClickedLabel *btnList;
     QSlider *slider;
 
     // 是否正在播放

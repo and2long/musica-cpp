@@ -10,5 +10,7 @@
         <file>images/ic_favorite_on.svg</file>
         <file>images/ic_favorite_off.svg</file>
         <file>images/ic_download_on.svg</file>
+        <file>images/ic_musiclist_off.svg</file>
+        <file>images/ic_musiclist_on.svg</file>
     </qresource>
 </RCC>

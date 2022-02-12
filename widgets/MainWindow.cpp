@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
+    connect(bottomBar->btnVolume, &VolumeButton::enter, this, &MainWindow::onBtnVolumeEntered);
 }
 
 void MainWindow::menuClicked(int index)
@@ -49,14 +50,9 @@ void MainWindow::menuClicked(int index)
     layout->setCurrentIndex(index);
 }
 
-void MainWindow::onBtnVolumeHovered()
+void MainWindow::onBtnVolumeEntered(bool status)
 {
-
-}
-
-void MainWindow::onBtnVolumeUnHovered()
-{
-
+    qDebug() << status;
 }
 
 void MainWindow::onSearch()

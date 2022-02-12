@@ -8,10 +8,10 @@ VolumeButton::VolumeButton(QWidget *parent): ClickedLabel{parent}
 void VolumeButton::enterEvent(QEnterEvent *event)
 {
     (void)event;
-    qDebug() << "enter";
+    emit enter(true);
 }
 void VolumeButton::leaveEvent(QEvent *event)
 {
     (void)event;
-    qDebug() << "leave";
+    emit enter(false);
 }

@@ -12,6 +12,9 @@ public:
 protected:
     virtual void enterEvent(QEnterEvent *event);
     virtual void leaveEvent(QEvent *event);
+
+signals:
+    void enter(bool status);
 };
 
 #endif // VOLUMEBUTTON_H

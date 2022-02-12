@@ -15,8 +15,7 @@ public:
 public slots:
     void menuClicked(int index);
     void onSearch();
-    void onBtnVolumeHovered();
-    void onBtnVolumeUnHovered();
+    void onBtnVolumeEntered(bool status);
 
 private:
     LeftMenus *leftMenus;

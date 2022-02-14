@@ -9,5 +9,7 @@ const int TOP_BAR_HEIGHT = 50;
 const int CONTAINER_WIDTH = 800;
 const int CONTAINER_HEIGHT = 560;
 const int BOTTOM_BAR_HEIGHT = 68;
+const int VOLUME_SLIDER_WIDTH = 30;
+const int VOLUME_SLIDER_HEIGHT = 150;
 
 #endif // CONSTANTS_H

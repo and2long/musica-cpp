@@ -26,7 +26,8 @@ SOURCES += \
     widgets/Song.cpp \
     widgets/TopBar.cpp \
     utils/CommonUtil.cpp \
-    widgets/VolumeButton.cpp
+    widgets/VolumeButton.cpp \
+    widgets/VolumeSlider.cpp
 
 HEADERS += \
     connection.h \
@@ -43,7 +44,8 @@ HEADERS += \
     widgets/Song.h \
     widgets/TopBar.h \
     utils/CommonUtil.h \
-    widgets/VolumeButton.h
+    widgets/VolumeButton.h \
+    widgets/VolumeSlider.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

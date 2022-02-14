@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QStackedLayout>
 #include "LeftMenus.h"
+#include "VolumeSlider.h"
 
 class MainWindow : public QWidget
 {
@@ -20,5 +21,6 @@ public slots:
 private:
     LeftMenus *leftMenus;
     QStackedLayout *layout;
+    VolumeSlider *slider;
 };
 #endif // MAINWINDOW_H

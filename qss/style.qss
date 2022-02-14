@@ -108,3 +108,8 @@ QSlider::handle:horizontal {
     width: 1px;
     border-radius: 4px;
 }
+
+VolumeSlider #bg{
+    background-color: #575757;
+    border-radius: 5px;
+}

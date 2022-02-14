@@ -43,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
     connect(bottomBar->btnVolume, &VolumeButton::enter, this, &MainWindow::onBtnVolumeEntered);
+    // 音量控制条
+    slider = new VolumeSlider(this);
+    slider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 40);
+    slider->hide();
 }
 
 void MainWindow::menuClicked(int index)
@@ -53,6 +57,14 @@ void MainWindow::menuClicked(int index)
 void MainWindow::onBtnVolumeEntered(bool status)
 {
     qDebug() << status;
+    if (status)
+    {
+        slider->show();
+    }
+    else
+    {
+        slider->hide();
+    }
 }
 
 void MainWindow::onSearch()

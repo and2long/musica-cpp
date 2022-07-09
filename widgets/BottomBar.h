@@ -16,7 +16,7 @@ class BottomBar : public QWidget
     Q_OBJECT
 public:
     explicit BottomBar(Song song, QWidget *parent = nullptr);
-    VolumeButton *btnVolume;
+    ClickedLabel *btnVolume;
 
 public slots:
     // 播放按钮的槽函数

@@ -35,18 +35,18 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     FavoritePage *favoritePage = new FavoritePage();
     layout->addWidget(favoritePage);
     // 底部控制栏
-    BottomBar *bottomBar = new BottomBar(Song(), this);
+    bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
     // 连接
     connect(searchPage, &SearchPage::itemClicked, bottomBar, &BottomBar::onSongClickedListener);
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
-    connect(bottomBar->btnVolume, &VolumeButton::enter, this, &MainWindow::onBtnVolumeEntered);
+    connect(bottomBar->btnVolume, &VolumeButton::clicked, this, &MainWindow::onVolumeBtnClicked);
     // 音量控制条
-    slider = new VolumeSlider(this);
-    slider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 40);
-    slider->hide();
+    volumeSlider = new VolumeSlider(this);
+    volumeSlider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 45);
+    volumeSlider->hide();
 }
 
 void MainWindow::menuClicked(int index)
@@ -54,16 +54,14 @@ void MainWindow::menuClicked(int index)
     layout->setCurrentIndex(index);
 }
 
-void MainWindow::onBtnVolumeEntered(bool status)
+void MainWindow::onVolumeBtnClicked()
 {
-    qDebug() << status;
-    if (status)
-    {
-        slider->show();
-    }
-    else
-    {
-        slider->hide();
+    if (volumeSlider->isHidden()){
+        volumeSlider->show();
+        bottomBar->btnVolume->setStyleSheet("background-color: black; border-radius: 8px;");
+    }else{
+        volumeSlider->hide();
+        bottomBar->btnVolume->setStyleSheet("");
     }
 }
 

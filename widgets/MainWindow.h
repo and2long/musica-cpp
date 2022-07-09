@@ -5,6 +5,7 @@
 #include <QStackedLayout>
 #include "LeftMenus.h"
 #include "VolumeSlider.h"
+#include "BottomBar.h"
 
 class MainWindow : public QWidget
 {
@@ -16,11 +17,12 @@ public:
 public slots:
     void menuClicked(int index);
     void onSearch();
-    void onBtnVolumeEntered(bool status);
+    void onVolumeBtnClicked();
 
 private:
     LeftMenus *leftMenus;
     QStackedLayout *layout;
-    VolumeSlider *slider;
+    VolumeSlider *volumeSlider;
+    BottomBar *bottomBar;
 };
 #endif // MAINWINDOW_H

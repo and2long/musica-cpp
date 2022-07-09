@@ -12,4 +12,17 @@ VolumeSlider::VolumeSlider(QWidget *parent)
     slider = new QSlider(Qt::Orientation::Vertical, this);
     slider->setFixedSize(VOLUME_SLIDER_WIDTH, VOLUME_SLIDER_HEIGHT - 16);
     slider->move(0, 10);
+    slider->setMaximum(100);
+    slider->setValue(50);
+}
+
+void VolumeSlider::enterEvent(QEnterEvent *event)
+{
+    (void)event;
+    emit enter(true);
+}
+void VolumeSlider::leaveEvent(QEvent *event)
+{
+    (void)event;
+    emit enter(false);
 }

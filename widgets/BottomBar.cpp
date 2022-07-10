@@ -32,7 +32,7 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
     btnPlay->setFixedSize(40, 40);
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 22);
-    QObject::connect(btnPlay, &ClickedLabel::clicked,this, &BottomBar::play);
+    QObject::connect(btnPlay, &ClickedLabel::clicked, this, &BottomBar::play);
 
     // 歌曲列表按钮
     btnList = new ClickedLabel(this);
@@ -89,7 +89,8 @@ void BottomBar::bufferProgressChanged(float progress)
 
 void BottomBar::play()
 {
-    if (song.id != 0 && !hasError) {
+    if (song.id != 0 && !hasError)
+    {
         if (playing)
         {
             player->pause();

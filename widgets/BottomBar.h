@@ -48,7 +48,6 @@ private:
     Song song;
     // 是否有错误
     bool hasError;
-
 };
 
 #endif // BOTTOMBAR_H

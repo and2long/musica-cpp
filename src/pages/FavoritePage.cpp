@@ -1,5 +1,5 @@
 #include "FavoritePage.h"
-#include "constants.h"
+#include "src/constants.h"
 #include <QLabel>
 #include <QSqlQuery>
 #include <QVariant>

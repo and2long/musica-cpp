@@ -2,7 +2,7 @@
 #define BOTTOMBAR_H
 
 #include <QWidget>
-#include "Song.h"
+#include "src/models/Song.h"
 #include <QLabel>
 #include "ClickedLabel.h"
 #include <QMediaPlayer>

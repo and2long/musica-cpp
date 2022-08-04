@@ -13,39 +13,39 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    widgets/MainWindow.cpp \
-    widgets/BottomBar.cpp \
-    widgets/ClickedLabel.cpp \
-    widgets/DownloadPage.cpp \
-    widgets/FavoritePage.cpp \
-    widgets/ItemSong.cpp \
-    widgets/LeftMenus.cpp \
-    widgets/NetworkImage.cpp \
-    widgets/SearchPage.cpp \
-    widgets/Song.cpp \
-    widgets/TopBar.cpp \
-    utils/CommonUtil.cpp \
-    widgets/VolumeButton.cpp \
-    widgets/VolumeSlider.cpp
+    src/main.cpp \
+    src/components/BottomBar.cpp \
+    src/components/ClickedLabel.cpp \
+    src/components/ItemSong.cpp \
+    src/components/LeftMenus.cpp \
+    src/components/NetworkImage.cpp \
+    src/components/VolumeButton.cpp \
+    src/components/VolumeSlider.cpp \
+    src/components/TopBar.cpp \
+    src/pages/MainWindow.cpp \
+    src/pages/DownloadPage.cpp \
+    src/pages/FavoritePage.cpp \
+    src/pages/SearchPage.cpp \
+    src/models/Song.cpp \
+    src/utils/CommonUtil.cpp
 
 HEADERS += \
-    connection.h \
-    constants.h \
-    widgets/MainWindow.h \
-    widgets/BottomBar.h \
-    widgets/ClickedLabel.h \
-    widgets/DownloadPage.h \
-    widgets/FavoritePage.h \
-    widgets/ItemSong.h \
-    widgets/LeftMenus.h \
-    widgets/NetworkImage.h \
-    widgets/SearchPage.h \
-    widgets/Song.h \
-    widgets/TopBar.h \
-    utils/CommonUtil.h \
-    widgets/VolumeButton.h \
-    widgets/VolumeSlider.h
+    src/connection.h \
+    src/constants.h \
+    src/components/BottomBar.h \
+    src/components/ClickedLabel.h \
+    src/components/ItemSong.h \
+    src/components/LeftMenus.h \
+    src/components/NetworkImage.h \
+    src/components/TopBar.h \
+    src/components/VolumeButton.h \
+    src/components/VolumeSlider.h \
+    src/pages/MainWindow.h \
+    src/pages/DownloadPage.h \
+    src/pages/FavoritePage.h \
+    src/pages/SearchPage.h \
+    src/models/Song.h \
+    src/utils/CommonUtil.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

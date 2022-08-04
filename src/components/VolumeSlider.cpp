@@ -1,5 +1,5 @@
 #include "VolumeSlider.h"
-#include "constants.h"
+#include "src/constants.h"
 
 VolumeSlider::VolumeSlider(QWidget *parent)
     : QWidget{parent}

@@ -1,6 +1,6 @@
 #include "LeftMenus.h"
 #include <QListWidget>
-#include "constants.h"
+#include "src/constants.h"
 #include <QLabel>
 
 LeftMenus::LeftMenus(QWidget *parent)

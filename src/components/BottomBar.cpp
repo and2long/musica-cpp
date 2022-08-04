@@ -1,6 +1,6 @@
 ﻿#include "BottomBar.h"
-#include "constants.h"
-#include "utils/CommonUtil.h"
+#include "src/constants.h"
+#include "src/utils/CommonUtil.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
     : QWidget{parent}, song(s)

@@ -3,9 +3,9 @@
 
 #include <QWidget>
 #include <QStackedLayout>
-#include "LeftMenus.h"
-#include "VolumeSlider.h"
-#include "BottomBar.h"
+#include "src/components/LeftMenus.h"
+#include "src/components/VolumeSlider.h"
+#include "src/components/BottomBar.h"
 
 class MainWindow : public QWidget
 {

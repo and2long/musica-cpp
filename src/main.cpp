@@ -1,4 +1,4 @@
-#include "widgets/MainWindow.h"
+#include "src/pages/MainWindow.h"
 #include <QApplication>
 #include <QFile>
 #include <QDebug>

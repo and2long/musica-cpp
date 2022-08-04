@@ -1,7 +1,7 @@
 #include "ItemSong.h"
 #include <QHBoxLayout>
 #include <QLabel>
-#include "utils/CommonUtil.h"
+#include "src/utils/CommonUtil.h"
 
 ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, song(song)
 {

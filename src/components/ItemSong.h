@@ -2,7 +2,7 @@
 #define ITEMSONG_H
 
 #include <QWidget>
-#include "Song.h"
+#include "src/models/Song.h"
 
 class ItemSong : public QWidget
 {

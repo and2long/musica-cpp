@@ -1,7 +1,7 @@
 #include "SearchPage.h"
-#include "constants.h"
+#include "src/constants.h"
 #include <QListWidget>
-#include "ItemSong.h"
+#include "src/components/ItemSong.h"
 #include <QFile>
 #include <QJsonParseError>
 #include <QJsonObject>

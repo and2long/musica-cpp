@@ -1,6 +1,6 @@
 #include "DownloadPage.h"
 #include <QLabel>
-#include "constants.h"
+#include "src/constants.h"
 
 DownloadPage::DownloadPage(QWidget *parent)
     : QWidget{parent}

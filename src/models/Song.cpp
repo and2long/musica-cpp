@@ -10,7 +10,8 @@ Song::Song(int songId, QString songName, QString songArtists, int songDuration, 
     album = songAlbum;
 };
 
-Song::Song(){
+Song::Song()
+{
     id = 0;
 }
 
@@ -28,12 +29,14 @@ Song::Song(QJsonObject song)
     }
     else
     {
-        for (int ii = 0; ii < ats.size(); ii++) {
-            if(ii == 0)
+        for (int ii = 0; ii < ats.size(); ii++)
+        {
+            if (ii == 0)
             {
                 singer += ats[0].toObject().value("name").toString();
             }
-            else{
+            else
+            {
                 singer += ("/" + ats[ii].toObject().value("name").toString());
             }
         }
@@ -47,7 +50,6 @@ Song::Song(QJsonObject song)
 
 QString Song::toString()
 {
-    return QString ("id: %1, name: %2, duration: %3, artists: %4, album: %5")
-            .arg(QString::number(id), name, QString::number(duration), artists, album);
+    return QString("id: %1, name: %2, duration: %3, artists: %4, album: %5")
+        .arg(QString::number(id), name, QString::number(duration), artists, album);
 }
-

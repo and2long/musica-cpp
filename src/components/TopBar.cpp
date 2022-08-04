@@ -9,7 +9,7 @@ TopBar::TopBar(QWidget *parent)
     QLabel *bg = new QLabel(this);
     bg->setFixedSize(WINDOW_WIDTH - LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
     bg->setObjectName("bg");
-    searchBox  = new QLineEdit(this);
+    searchBox = new QLineEdit(this);
     searchBox->setClearButtonEnabled(true);
     searchBox->setFixedSize(300, 28);
     searchBox->move((WINDOW_WIDTH - LEFT_MENUS_WIDTH) / 2 - 150, 11);

@@ -19,8 +19,6 @@ signals:
 
 public slots:
     void itemClicked(QListWidgetItem *item);
-
-
 };
 
 #endif // LEFTMENUS_H

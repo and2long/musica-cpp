@@ -12,7 +12,8 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
 
     QList stretchs = {2, 9, 5, 3};
     QStringList titles = {CommonUtil::formatNum(index + 1), song.name, song.artists, CommonUtil::formatDuration(song.duration)};
-    for (int i = 0; i< stretchs.length() ; i++) {
+    for (int i = 0; i < stretchs.length(); i++)
+    {
         QLabel *item = new QLabel;
         if (i == 0)
         {

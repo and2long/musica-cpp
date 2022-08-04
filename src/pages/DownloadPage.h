@@ -10,7 +10,6 @@ public:
     explicit DownloadPage(QWidget *parent = nullptr);
 
 signals:
-
 };
 
 #endif // DOWNLOADPAGE_H

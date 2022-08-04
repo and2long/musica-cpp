@@ -8,7 +8,6 @@
 
 NetworkImage::NetworkImage(QWidget *parent) : QLabel{parent}
 {
-
 }
 
 void NetworkImage::setImageUrl(const QString &szUrl)

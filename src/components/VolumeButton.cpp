@@ -1,8 +1,7 @@
 #include "VolumeButton.h"
 
-VolumeButton::VolumeButton(QWidget *parent): ClickedLabel{parent}
+VolumeButton::VolumeButton(QWidget *parent) : ClickedLabel{parent}
 {
-
 }
 
 void VolumeButton::enterEvent(QEnterEvent *event)

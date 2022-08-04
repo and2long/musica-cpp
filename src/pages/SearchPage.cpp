@@ -23,7 +23,6 @@ SearchPage::SearchPage(QWidget *parent)
     items->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
 
     setTemplates();
-
 }
 
 void SearchPage::setData(QByteArray data)
@@ -32,7 +31,8 @@ void SearchPage::setData(QByteArray data)
     QJsonDocument doc(QJsonDocument::fromJson(data, &error));
     if (error.error != QJsonParseError::NoError)
     {
-        qDebug() << "json parse error!\n" << error.errorString();
+        qDebug() << "json parse error!\n"
+                 << error.errorString();
     }
     else
     {
@@ -40,13 +40,14 @@ void SearchPage::setData(QByteArray data)
         QJsonObject obj = doc.object();
         QJsonObject result = obj.value("result").toObject();
         QJsonArray songs = result.value("songs").toArray();
-        for (int i = 0; i < songs.size();  i++) {
+        for (int i = 0; i < songs.size(); i++)
+        {
             QJsonObject song = songs[i].toObject();
             ItemSong *widget = new ItemSong(i, Song(song));
             QListWidgetItem *item = new QListWidgetItem;
             items->addItem(item);
             items->setItemWidget(item, widget);
-            connect(widget, SIGNAL(clicked(Song)),this,  SLOT(onItemClicked(Song)));
+            connect(widget, SIGNAL(clicked(Song)), this, SLOT(onItemClicked(Song)));
         }
     }
 }
@@ -55,7 +56,7 @@ void SearchPage::setTemplates()
 {
     QFile f(":/assets/templates/search_result.json");
 
-    if(!f.open(QIODevice::ReadOnly))
+    if (!f.open(QIODevice::ReadOnly))
     {
         qDebug() << "could't open projects json";
         return;
@@ -86,8 +87,8 @@ void SearchPage::onSearch(QString keyword)
 
     if (reply->error() == QNetworkReply::NoError)
     {
-        QByteArray data =  reply->readAll();
-//        qDebug().noquote() << data;
+        QByteArray data = reply->readAll();
+        //        qDebug().noquote() << data;
         setData(data);
         reply->deleteLater();
     }

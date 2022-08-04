@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     // 左侧菜单
     leftMenus = new LeftMenus(this);
     // 顶部快捷搜索栏
-    TopBar *topBar =  new TopBar(this);
+    TopBar *topBar = new TopBar(this);
     topBar->move(LEFT_MENUS_WIDTH, 0);
     // 中间层叠容器
     QWidget *container = new QWidget(this);
@@ -56,10 +56,13 @@ void MainWindow::menuClicked(int index)
 
 void MainWindow::onVolumeBtnClicked()
 {
-    if (volumeSlider->isHidden()){
+    if (volumeSlider->isHidden())
+    {
         volumeSlider->show();
         bottomBar->btnVolume->setStyleSheet("background-color: black; border-radius: 8px;");
-    }else{
+    }
+    else
+    {
         volumeSlider->hide();
         bottomBar->btnVolume->setStyleSheet("");
     }

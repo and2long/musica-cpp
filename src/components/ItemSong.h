@@ -14,7 +14,6 @@ public:
 
 signals:
     void clicked(Song song);
-
 };
 
 #endif // ITEMSONG_H

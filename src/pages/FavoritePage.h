@@ -10,7 +10,6 @@ public:
     explicit FavoritePage(QWidget *parent = nullptr);
 
 signals:
-
 };
 
 #endif // FAVORITEPAGE_H

@@ -6,7 +6,6 @@ using namespace std;
 
 CommonUtil::CommonUtil()
 {
-
 }
 QString CommonUtil::formatNum(int num)
 {

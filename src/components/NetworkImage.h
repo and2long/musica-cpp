@@ -12,7 +12,6 @@ public:
     void setImageUrl(const QString &szUrl);
 
 signals:
-
 };
 
 #endif // NETWORKIMAGE_H

@@ -17,7 +17,6 @@ signals:
     void search(QString keyword);
 public slots:
     void onSearch();
-
 };
 
 #endif // TOPBAR_H

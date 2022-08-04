@@ -1,18 +1,18 @@
 <RCC>
     <qresource prefix="/">
-        <file>templates/search_result.json</file>
-        <file>qss/style.qss</file>
-        <file>images/ic_download_off.svg</file>
-        <file>images/ic_play.svg</file>
-        <file>images/ic_pause.svg</file>
-        <file>images/ic_music_on.svg</file>
-        <file>images/ic_music_off.svg</file>
-        <file>images/ic_favorite_on.svg</file>
-        <file>images/ic_favorite_off.svg</file>
-        <file>images/ic_download_on.svg</file>
-        <file>images/ic_musiclist_off.svg</file>
-        <file>images/ic_musiclist_on.svg</file>
-        <file>images/ic_volume.svg</file>
-        <file>images/ic_volume_off.svg</file>
+        <file>assets/templates/search_result.json</file>
+        <file>assets/qss/style.qss</file>
+        <file>assets/images/ic_volume_off.svg</file>
+        <file>assets/images/ic_volume.svg</file>
+        <file>assets/images/ic_musiclist_off.svg</file>
+        <file>assets/images/ic_musiclist_on.svg</file>
+        <file>assets/images/ic_play.svg</file>
+        <file>assets/images/ic_pause.svg</file>
+        <file>assets/images/ic_music_on.svg</file>
+        <file>assets/images/ic_music_off.svg</file>
+        <file>assets/images/ic_favorite_on.svg</file>
+        <file>assets/images/ic_favorite_off.svg</file>
+        <file>assets/images/ic_download_on.svg</file>
+        <file>assets/images/ic_download_off.svg</file>
     </qresource>
 </RCC>

@@ -29,21 +29,21 @@ BottomBar::BottomBar(Song s, QWidget *parent)
 
     // 播放按钮
     btnPlay = new ClickedLabel(this);
-    btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+    btnPlay->setPixmap(QPixmap(":/assets/images/ic_play.svg"));
     btnPlay->setFixedSize(40, 40);
     btnPlay->move(WINDOW_WIDTH / 2 - 20, BOTTOM_BAR_HEIGHT / 2 - 22);
     QObject::connect(btnPlay, &ClickedLabel::clicked, this, &BottomBar::play);
 
     // 歌曲列表按钮
     btnList = new ClickedLabel(this);
-    btnList->setPixmap(QPixmap(":/images/ic_musiclist_off.svg"));
+    btnList->setPixmap(QPixmap(":/assets/images/ic_musiclist_off.svg"));
     btnList->setFixedSize(30, 30);
     btnList->setScaledContents(true);
     btnList->move(WINDOW_WIDTH - 50, BOTTOM_BAR_HEIGHT / 2 - 18);
 
     // 音量按钮
     btnVolume = new ClickedLabel(this);
-    btnVolume->setPixmap(QPixmap(":/images/ic_volume.svg"));
+    btnVolume->setPixmap(QPixmap(":/assets/images/ic_volume.svg"));
     btnVolume->setFixedSize(30, 30);
     btnVolume->setScaledContents(true);
     btnVolume->move(WINDOW_WIDTH - 90, BOTTOM_BAR_HEIGHT / 2 - 18);
@@ -139,11 +139,11 @@ void BottomBar::switchBtnStatus(bool status)
 {
     if (status)
     {
-        btnPlay->setPixmap(QPixmap(":/images/ic_pause.svg"));
+        btnPlay->setPixmap(QPixmap(":/assets/images/ic_pause.svg"));
     }
     else
     {
-        btnPlay->setPixmap(QPixmap(":/images/ic_play.svg"));
+        btnPlay->setPixmap(QPixmap(":/assets/images/ic_play.svg"));
     }
     slider->setEnabled(status);
 }

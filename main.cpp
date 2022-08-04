@@ -5,7 +5,7 @@
 
 void loadQSS()
 {
-    QFile f(":/qss/style.qss");
+    QFile f(":/assets/qss/style.qss");
     if (f.open(QFile::ReadOnly))
     {
         QString str = QLatin1String(f.readAll());

@@ -9,7 +9,6 @@
 #include <QAudioOutput>
 #include "NetworkImage.h"
 #include <QSlider>
-#include "VolumeButton.h"
 
 class BottomBar : public QWidget
 {

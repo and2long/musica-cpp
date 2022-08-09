@@ -6,6 +6,7 @@
 #include "src/components/BottomBar.h"
 #include "src/constants.h"
 #include "src/connection.h"
+#include "src/components/VolumeButton.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {

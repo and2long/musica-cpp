@@ -64,6 +64,7 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     connect(player, &QMediaPlayer::positionChanged, this, &BottomBar::positionChanged);
     connect(player, &QMediaPlayer::positionChanged, slider, &QSlider::setValue);
     connect(slider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
+    connect(slider, &QSlider::valueChanged, player, &QMediaPlayer::setPosition);
 }
 
 void BottomBar::positionChanged(qint64 position)

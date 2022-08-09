@@ -9,6 +9,8 @@ class FavoritePage : public QWidget
 public:
     explicit FavoritePage(QWidget *parent = nullptr);
 
+    void initData();
+
 signals:
 };
 

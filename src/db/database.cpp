@@ -28,3 +28,21 @@ void Database::init()
         }
     }
 }
+
+QList<Song> Database::queryAll()
+{
+    QSqlQuery query;
+    query.exec("select * from favorites");
+    QList<Song> results = {};
+    while (query.next())
+    {
+        int sid = query.value("sid").toInt();
+        int duration = query.value("duration").toInt();
+        QString name = query.value("name").toString();
+        QString artists = query.value("artists").toString();
+        QString album = query.value("album").toString();
+        Song song = Song(sid, name, artists, duration, album);
+        results.append(song);
+    }
+    return results;
+}

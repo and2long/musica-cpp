@@ -10,6 +10,7 @@ class Database
 public:
     static void init();
     static QList<Song> queryAll();
+    static void insert(Song song);
 };
 
 #endif // DATABASE_H

@@ -46,3 +46,11 @@ QList<Song> Database::queryAll()
     }
     return results;
 }
+
+void Database::insert(Song song)
+{
+    QString sql = QString("INSERT INTO favorites (sid, duration, name, artists, album) VALUES (%1, %2, '%3', '%4', '%5')")
+                      .arg(QString::number(song.sid), QString::number(song.duration), song.name, song.artists, song.album);
+    QSqlQuery query;
+    query.exec(sql);
+}

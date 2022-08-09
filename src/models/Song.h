@@ -6,7 +6,7 @@ class Song
 {
 public:
     // 歌曲id
-    int id;
+    int sid;
     // 歌曲时长
     int duration;
     // 歌曲名
@@ -17,7 +17,7 @@ public:
     QString album;
 
     Song();
-    Song(int id, QString name, QString artists, int duration, QString album);
+    Song(int sid, QString name, QString artists, int duration, QString album);
     Song(QJsonObject obj);
 
     QString toString();

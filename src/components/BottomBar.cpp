@@ -89,7 +89,7 @@ void BottomBar::bufferProgressChanged(float progress)
 
 void BottomBar::play()
 {
-    if (song.id != 0 && !hasError)
+    if (song.sid != 0 && !hasError)
     {
         if (playing)
         {
@@ -112,7 +112,7 @@ void BottomBar::onSongClickedListener(Song value)
 
     hasError = false;
 
-    if (song.id == value.id)
+    if (song.sid == value.sid)
     {
         return;
     }
@@ -127,7 +127,7 @@ void BottomBar::onSongClickedListener(Song value)
     songDuration->setText("00:00 / " + CommonUtil::formatDuration(song.duration));
     songDuration->adjustSize();
 
-    player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.id))));
+    player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.sid))));
     player->play();
     playing = true;
     switchBtnStatus(playing);

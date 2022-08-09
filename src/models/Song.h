@@ -15,9 +15,10 @@ public:
     QString artists;
     // 专辑封面
     QString album;
+
+    Song();
     Song(int id, QString name, QString artists, int duration, QString album);
     Song(QJsonObject obj);
-    Song();
 
     QString toString();
 };

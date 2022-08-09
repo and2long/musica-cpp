@@ -9,5 +9,6 @@ public:
     static QString formatNum(int num);
     // 格式化歌曲时长
     static QString formatDuration(int duration);
+    //
 };
 #endif // COMMONUTIL_H

@@ -1,6 +1,11 @@
 #include "Song.h"
 #include <QJsonArray>
 
+Song::Song()
+{
+    id = 0;
+};
+
 Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum)
 {
     id = songId;
@@ -9,11 +14,6 @@ Song::Song(int songId, QString songName, QString songArtists, int songDuration, 
     artists = songArtists;
     album = songAlbum;
 };
-
-Song::Song()
-{
-    id = 0;
-}
 
 Song::Song(QJsonObject song)
 {

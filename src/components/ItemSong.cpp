@@ -1,3 +1,4 @@
+#include "ClickedLabel.h"
 #include "ItemSong.h"
 #include <QHBoxLayout>
 #include <QLabel>
@@ -10,10 +11,20 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
 
-    QList stretchs = {2, 9, 5, 3};
-    QStringList titles = {CommonUtil::formatNum(index + 1), song.name, song.artists, CommonUtil::formatDuration(song.duration)};
+    QList stretchs = {2, 0, 9, 5, 3};
+    QStringList titles = {CommonUtil::formatNum(index + 1), "", song.name, song.artists, CommonUtil::formatDuration(song.duration)};
     for (int i = 0; i < stretchs.length(); i++)
     {
+        if(i == 1)
+        {
+            // 收藏按钮
+            ClickedLabel *favoriteBtn = new ClickedLabel;
+            favoriteBtn->setPixmap(QPixmap(":/assets/images/ic_favorite_off.svg"));
+            favoriteBtn->setFixedSize(20, 20);
+            favoriteBtn->setScaledContents(true);
+            connect(favoriteBtn, &ClickedLabel::clicked, this, &ItemSong::favoriteBtnClickEvent);
+            layout->addWidget(favoriteBtn, stretchs[i]);
+        }
         QLabel *item = new QLabel;
         if (i == 0)
         {
@@ -31,5 +42,9 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
 void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
 {
     (void)ev;
-    emit clicked(song);
+    emit doubleClicked(song);
+}
+
+void ItemSong::favoriteBtnClickEvent(){
+    qDebug() << "favorite";
 }

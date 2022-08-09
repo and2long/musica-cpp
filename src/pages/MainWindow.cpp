@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
     // 连接
-    connect(searchPage, &SearchPage::itemClicked, bottomBar, &BottomBar::onSongClickedListener);
+    connect(searchPage, &SearchPage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);

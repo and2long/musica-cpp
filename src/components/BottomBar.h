@@ -21,7 +21,7 @@ public slots:
     // 播放按钮的槽函数
     void play();
     // 歌曲列表点击事件
-    void onSongClickedListener(Song value);
+    void onSongDoubleClickEvent(Song value);
     // 播放器事件
     void errorOccurred(QMediaPlayer::Error error, const QString &errorString);
     void bufferProgressChanged(float progress);

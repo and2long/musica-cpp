@@ -47,7 +47,7 @@ void SearchPage::setData(QByteArray data)
             QListWidgetItem *item = new QListWidgetItem;
             items->addItem(item);
             items->setItemWidget(item, widget);
-            connect(widget, SIGNAL(clicked(Song)), this, SLOT(onItemClicked(Song)));
+            connect(widget, &ItemSong::doubleClicked, this, &SearchPage::onSongDoubleClickEvent);
         }
     }
 }
@@ -69,9 +69,9 @@ void SearchPage::setTemplates()
     }
 }
 
-void SearchPage::onItemClicked(Song song)
+void SearchPage::onSongDoubleClickEvent(Song song)
 {
-    emit itemClicked(song);
+    emit songDoubleClicked(song);
 }
 
 void SearchPage::onSearch(QString keyword)

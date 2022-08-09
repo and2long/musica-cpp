@@ -19,11 +19,11 @@ private:
     QListWidget *items;
 
 public slots:
-    void onItemClicked(Song song);
+    void onSongDoubleClickEvent(Song song);
     void onSearch(QString keyword);
 
 signals:
-    void itemClicked(Song song);
+    void songDoubleClicked(Song song);
 };
 
 #endif // SEARCHPAGE_H

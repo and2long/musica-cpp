@@ -11,9 +11,10 @@ public:
     explicit ItemSong(int index, Song song, QWidget *parent = nullptr);
     Song song;
     void mouseDoubleClickEvent(QMouseEvent *ev);
+    void favoriteBtnClickEvent();
 
 signals:
-    void clicked(Song song);
+    void doubleClicked(Song song);
 };
 
 #endif // ITEMSONG_H

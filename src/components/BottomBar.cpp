@@ -84,7 +84,7 @@ void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorStr
 
 void BottomBar::bufferProgressChanged(float progress)
 {
-    qDebug() << progress;
+    qDebug() << "bufferProgressChanged: " << progress;
 }
 
 void BottomBar::play()
@@ -106,10 +106,8 @@ void BottomBar::play()
     }
 }
 
-void BottomBar::onSongClickedListener(Song value)
+void BottomBar::onSongDoubleClickEvent(Song value)
 {
-    qDebug() << value.toString();
-
     hasError = false;
 
     if (song.sid == value.sid)

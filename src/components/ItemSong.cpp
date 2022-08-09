@@ -3,6 +3,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include "src/utils/CommonUtil.h"
+#include "src/db/database.h"
 
 ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, song(song)
 {
@@ -19,7 +20,7 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
         {
             // 收藏按钮
             ClickedLabel *favoriteBtn = new ClickedLabel;
-            favoriteBtn->setPixmap(QPixmap(":/assets/images/ic_favorite_off.svg"));
+            favoriteBtn->setPixmap(QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "on" : "off")));
             favoriteBtn->setFixedSize(20, 20);
             favoriteBtn->setScaledContents(true);
             connect(favoriteBtn, &ClickedLabel::clicked, this, &ItemSong::favoriteBtnClickEvent);
@@ -47,4 +48,6 @@ void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
 
 void ItemSong::favoriteBtnClickEvent(){
     qDebug() << "favorite";
+    song.isFavorite = true;
+    Database::insert(song);
 }

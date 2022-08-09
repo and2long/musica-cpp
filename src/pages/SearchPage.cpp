@@ -13,6 +13,7 @@
 #include <QNetworkReply>
 #include <QPixmap>
 #include <QEventLoop>
+#include <src/db/database.h>
 
 SearchPage::SearchPage(QWidget *parent)
     : QWidget{parent}
@@ -27,6 +28,11 @@ SearchPage::SearchPage(QWidget *parent)
 
 void SearchPage::setData(QByteArray data)
 {
+    QList<Song> favoriteSongs = Database::queryAll();
+    QList<int> ids = {};
+    foreach (Song item, favoriteSongs) {
+        ids.append(item.sid);
+    }
     QJsonParseError error;
     QJsonDocument doc(QJsonDocument::fromJson(data, &error));
     if (error.error != QJsonParseError::NoError)
@@ -42,8 +48,10 @@ void SearchPage::setData(QByteArray data)
         QJsonArray songs = result.value("songs").toArray();
         for (int i = 0; i < songs.size(); i++)
         {
-            QJsonObject song = songs[i].toObject();
-            ItemSong *widget = new ItemSong(i, Song(song));
+            QJsonObject songObj = songs[i].toObject();
+            Song song = Song(songObj);
+            song.isFavorite = ids.contains(song.sid);
+            ItemSong *widget = new ItemSong(i, song);
             QListWidgetItem *item = new QListWidgetItem;
             items->addItem(item);
             items->setItemWidget(item, widget);

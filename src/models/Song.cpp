@@ -6,13 +6,14 @@ Song::Song()
     sid = 0;
 };
 
-Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum)
+Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum, bool favorite)
 {
     sid = songId;
     name = songName;
     duration = songDuration;
     artists = songArtists;
     album = songAlbum;
+    isFavorite = favorite;
 };
 
 Song::Song(QJsonObject song)
@@ -50,6 +51,6 @@ Song::Song(QJsonObject song)
 
 QString Song::toString()
 {
-    return QString("id: %1, name: %2, duration: %3, artists: %4, album: %5")
-        .arg(QString::number(sid), name, QString::number(duration), artists, album);
+    return QString("id: %1, name: %2, duration: %3, artists: %4, album: %5, isFavorite: %6")
+        .arg(QString::number(sid), name, QString::number(duration), artists, album, QString::number(isFavorite));
 }

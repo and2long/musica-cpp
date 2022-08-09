@@ -5,7 +5,6 @@
 class CommonUtil
 {
 public:
-    CommonUtil();
     // 格式化数字，前面补0
     static QString formatNum(int num);
     // 格式化歌曲时长

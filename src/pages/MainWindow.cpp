@@ -5,13 +5,10 @@
 #include "FavoritePage.h"
 #include "src/components/BottomBar.h"
 #include "src/constants.h"
-#include "src/connection.h"
 #include "src/components/VolumeButton.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
-    createConnection();
-
     setWindowTitle("MUSICA");
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     // 左侧菜单

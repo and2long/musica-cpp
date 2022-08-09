@@ -1,3 +1,4 @@
+#include "src/db/database.h"
 #include "src/pages/MainWindow.h"
 #include <QApplication>
 #include <QFile>
@@ -20,6 +21,7 @@ void loadQSS()
 
 int main(int argc, char *argv[])
 {
+    Database::init();
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

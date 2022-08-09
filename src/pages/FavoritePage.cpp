@@ -18,6 +18,6 @@ FavoritePage::FavoritePage(QWidget *parent)
         int duration = query.value("duration").toInt();
         QString name = query.value("name").toString();
 
-        qDebug() << id << " " << sid << " " << name << " " << duration;
+        qDebug() << "FavoritePage: " << id << " " << sid << " " << name << " " << duration;
     }
 }

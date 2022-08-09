@@ -4,9 +4,6 @@
 #include <string>
 using namespace std;
 
-CommonUtil::CommonUtil()
-{
-}
 QString CommonUtil::formatNum(int num)
 {
     if (num >= 100)

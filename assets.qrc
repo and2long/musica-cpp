@@ -14,5 +14,6 @@
         <file>assets/images/ic_favorite_off.svg</file>
         <file>assets/images/ic_download_on.svg</file>
         <file>assets/images/ic_download_off.svg</file>
+        <file>assets/images/ic_favorite_fill.svg</file>
     </qresource>
 </RCC>

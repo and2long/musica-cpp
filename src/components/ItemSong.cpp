@@ -62,5 +62,5 @@ void ItemSong::favoriteBtnClickEvent(){
 
 void ItemSong::setFavoriteIcon(Song song)
 {
-    favoriteBtn->setPixmap(QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "on" : "off")));
+    favoriteBtn->setPixmap(QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "fill" : "off")));
 }

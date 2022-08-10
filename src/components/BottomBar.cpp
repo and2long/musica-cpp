@@ -94,14 +94,12 @@ void BottomBar::play()
         if (playing)
         {
             player->pause();
-            playing = false;
         }
         else
         {
             player->play();
-            playing = true;
-            qDebug() << song.toString();
         }
+        playing = !playing;
         switchBtnStatus(playing);
     }
 }

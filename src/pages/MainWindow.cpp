@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     container->setLayout(layout);
     container->move(LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
     // 搜索页面
-    SearchPage *searchPage = new SearchPage();
+    searchPage = new SearchPage();
     layout->addWidget(searchPage);
     // 下载界面
     DownloadPage *downloadPage = new DownloadPage();
@@ -50,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 void MainWindow::menuClicked(int index)
 {
     layout->setCurrentIndex(index);
+    if (index == 0)
+    {
+        searchPage->setTemplates();
+    }
     if (index == 2)
     {
         favoritePage->initData();

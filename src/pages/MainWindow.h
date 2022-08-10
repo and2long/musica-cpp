@@ -7,6 +7,7 @@
 #include "src/components/VolumeSlider.h"
 #include "src/components/BottomBar.h"
 #include "FavoritePage.h"
+#include "SearchPage.h"
 
 class MainWindow : public QWidget
 {
@@ -25,6 +26,7 @@ private:
     QStackedLayout *layout;
     VolumeSlider *volumeSlider;
     BottomBar *bottomBar;
+    SearchPage *searchPage;
     FavoritePage *favoritePage;
 };
 #endif // MAINWINDOW_H

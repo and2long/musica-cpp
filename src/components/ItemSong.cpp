@@ -57,6 +57,7 @@ void ItemSong::favoriteBtnClickEvent(){
     }
     song.isFavorite = !song.isFavorite;
     setFavoriteIcon(song);
+    emit favoriteIconClicked();
 }
 
 void ItemSong::setFavoriteIcon(Song song)

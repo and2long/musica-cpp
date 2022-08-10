@@ -20,6 +20,7 @@ public:
 
 signals:
     void doubleClicked(Song song);
+    void favoriteIconClicked();
 };
 
 #endif // ITEMSONG_H

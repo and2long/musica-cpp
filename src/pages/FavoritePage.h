@@ -21,6 +21,7 @@ signals:
 
 public slots:
     void onSongDoubleClickEvent(Song song);
+    void onFavoriteIconClickEvent();
 };
 
 #endif // FAVORITEPAGE_H

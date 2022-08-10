@@ -1,9 +1,10 @@
-#include "FavoritePage.h"
 #include <QLabel>
 
+#include "FavoritePage.h"
 #include "src/constants.h"
 #include "src/db/database.h"
-#include <src/components/ItemSong.h>
+#include "src/components/ItemSong.h"
+
 
 FavoritePage::FavoritePage(QWidget *parent)
     : QWidget{parent}
@@ -16,7 +17,6 @@ FavoritePage::FavoritePage(QWidget *parent)
 void FavoritePage::initData()
 {
     QList<Song> songs = Database::queryAll();
-    qDebug() << "FavoritePage: " << songs.size();
     items->clear();
     for (int i = 0; i < songs.size(); i++)
     {
@@ -27,6 +27,7 @@ void FavoritePage::initData()
         items->addItem(item);
         items->setItemWidget(item, widget);
         connect(widget, &ItemSong::doubleClicked, this, &FavoritePage::onSongDoubleClickEvent);
+        connect(widget, &ItemSong::favoriteIconClicked, this, &FavoritePage::onFavoriteIconClickEvent);
     }
 }
 
@@ -35,3 +36,9 @@ void FavoritePage::onSongDoubleClickEvent(Song song)
     emit songDoubleClicked(song);
 }
 
+void FavoritePage::onFavoriteIconClickEvent()
+{
+    QListWidgetItem *it = items->currentItem();
+    items->removeItemWidget(it);
+    delete it;
+}

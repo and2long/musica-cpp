@@ -25,12 +25,12 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     // 搜索页面
     searchPage = new SearchPage();
     layout->addWidget(searchPage);
-    // 下载界面
-    DownloadPage *downloadPage = new DownloadPage();
-    layout->addWidget(downloadPage);
     // 收藏界面
     favoritePage = new FavoritePage();
     layout->addWidget(favoritePage);
+    // 下载界面
+    DownloadPage *downloadPage = new DownloadPage();
+    layout->addWidget(downloadPage);
     // 底部控制栏
     bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
@@ -54,7 +54,7 @@ void MainWindow::menuClicked(int index)
     {
         searchPage->setTemplates();
     }
-    if (index == 2)
+    if (index == 1)
     {
         favoritePage->initData();
     }

@@ -13,9 +13,9 @@ LeftMenus::LeftMenus(QWidget *parent)
     items = new QListWidget(this);
     items->move(0, 100);
     items->setFixedSize(LEFT_MENUS_WIDTH, WINDOW_HEIGHT);
-    QStringList titles = {"发现音乐", "下载管理", "我的收藏"};
-    QStringList iconsOn = {":/assets/images/ic_music_on.svg", ":/assets/images/ic_download_on.svg", ":/assets/images/ic_favorite_on.svg"};
-    QStringList iconsOff = {":/assets/images/ic_music_off.svg", ":/assets/images/ic_download_off.svg", ":/assets/images/ic_favorite_off.svg"};
+    QStringList titles = {"发现音乐", "我的收藏", "下载管理"};
+    QStringList iconsOn = {":/assets/images/ic_music_on.svg", ":/assets/images/ic_favorite_on.svg", ":/assets/images/ic_download_on.svg"};
+    QStringList iconsOff = {":/assets/images/ic_music_off.svg", ":/assets/images/ic_favorite_off.svg", ":/assets/images/ic_download_off.svg"};
     for (int i = 0; i < titles.size(); i++)
     {
         QIcon icon;

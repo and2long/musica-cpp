@@ -52,6 +52,19 @@ TopBar QLineEdit {
 .SearchPage QListWidget::item:hover {
     background-color: #2f2f2f;
 }
+.FavoritePage QListWidget {
+    background-color: #252525;
+    border: none;
+}
+.FavoritePage QListWidget::item {
+    height: 37px;
+}
+.FavoritePage QListWidget::item:selected {
+    background-color: #2f2f2f;
+}
+.FavoritePage QListWidget::item:hover {
+    background-color: #2f2f2f;
+}
 
 /*滚动条*/
 QScrollBar:vertical {

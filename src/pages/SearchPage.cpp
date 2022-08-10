@@ -18,8 +18,6 @@
 SearchPage::SearchPage(QWidget *parent)
     : QWidget{parent}
 {
-    setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
-
     items = new QListWidget(this);
     items->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
 

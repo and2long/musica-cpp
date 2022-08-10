@@ -1,6 +1,8 @@
 #ifndef FAVORITEPAGE_H
 #define FAVORITEPAGE_H
 
+#include "src/models/Song.h"
+#include <QListWidget>
 #include <QWidget>
 
 class FavoritePage : public QWidget
@@ -11,7 +13,14 @@ public:
 
     void initData();
 
+private:
+    QListWidget *items;
+
 signals:
+    void songDoubleClicked(Song song);
+
+public slots:
+    void onSongDoubleClickEvent(Song song);
 };
 
 #endif // FAVORITEPAGE_H

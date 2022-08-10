@@ -3,7 +3,6 @@
 #include "SearchPage.h"
 #include "DownloadPage.h"
 #include "FavoritePage.h"
-#include "src/components/BottomBar.h"
 #include "src/constants.h"
 #include "src/components/VolumeButton.h"
 
@@ -30,13 +29,14 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     DownloadPage *downloadPage = new DownloadPage();
     layout->addWidget(downloadPage);
     // 收藏界面
-    FavoritePage *favoritePage = new FavoritePage();
+    favoritePage = new FavoritePage();
     layout->addWidget(favoritePage);
     // 底部控制栏
     bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
     // 连接
     connect(searchPage, &SearchPage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
+    connect(favoritePage, &FavoritePage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
@@ -50,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 void MainWindow::menuClicked(int index)
 {
     layout->setCurrentIndex(index);
+    if (index == 2)
+    {
+        favoritePage->initData();
+    }
 }
 
 void MainWindow::onVolumeBtnClicked()

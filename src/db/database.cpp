@@ -49,8 +49,20 @@ QList<Song> Database::queryAll()
 
 void Database::insert(Song song)
 {
-    QString sql = QString("INSERT INTO favorites (sid, duration, name, artists, album) VALUES (%1, %2, '%3', '%4', '%5')")
-                      .arg(QString::number(song.sid), QString::number(song.duration), song.name, song.artists, song.album);
     QSqlQuery query;
-    query.exec(sql);
+    query.exec(QString("INSERT INTO favorites (sid, duration, name, artists, album) VALUES (%1, %2, '%3', '%4', '%5')")
+               .arg(QString::number(song.sid), QString::number(song.duration), song.name, song.artists, song.album));
+}
+
+void Database::remove(Song song)
+{
+    QSqlQuery query;
+    query.exec(QString("DELETE FROM favorites WHERE sid = %1").arg(song.sid));
+}
+
+bool Database::exist(int sid)
+{
+    QSqlQuery query;
+    query.exec(QString("SELECT 1 FROM favorites WHERE sid = %1 LIMIT 1").arg(sid));
+    return query.next();
 }

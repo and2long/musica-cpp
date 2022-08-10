@@ -11,6 +11,8 @@ public:
     static void init();
     static QList<Song> queryAll();
     static void insert(Song song);
+    static void remove(Song song);
+    static bool exist(int sid);
 };
 
 #endif // DATABASE_H

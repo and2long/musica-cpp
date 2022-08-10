@@ -19,10 +19,10 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent) : QWidget{parent}, son
         if(i == 1)
         {
             // 收藏按钮
-            ClickedLabel *favoriteBtn = new ClickedLabel;
-            favoriteBtn->setPixmap(QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "on" : "off")));
+            favoriteBtn = new ClickedLabel;
             favoriteBtn->setFixedSize(20, 20);
             favoriteBtn->setScaledContents(true);
+            setFavoriteIcon(song);
             connect(favoriteBtn, &ClickedLabel::clicked, this, &ItemSong::favoriteBtnClickEvent);
             layout->addWidget(favoriteBtn, stretchs[i]);
         }
@@ -47,7 +47,19 @@ void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
 }
 
 void ItemSong::favoriteBtnClickEvent(){
-    qDebug() << "favorite";
-    song.isFavorite = true;
-    Database::insert(song);
+    if (song.isFavorite)
+    {
+        Database::remove(song);
+    }
+    else
+    {
+        Database::insert(song);
+    }
+    song.isFavorite = !song.isFavorite;
+    setFavoriteIcon(song);
+}
+
+void ItemSong::setFavoriteIcon(Song song)
+{
+    favoriteBtn->setPixmap(QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "on" : "off")));
 }

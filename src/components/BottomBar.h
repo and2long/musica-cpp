@@ -16,6 +16,7 @@ class BottomBar : public QWidget
 public:
     explicit BottomBar(Song song, QWidget *parent = nullptr);
     ClickedLabel *btnVolume;
+    ClickedLabel *btnList;
 
 public slots:
     // 播放按钮的槽函数
@@ -36,7 +37,6 @@ private:
     QLabel *songName;
     QLabel *songDuration;
     ClickedLabel *btnPlay;
-    ClickedLabel *btnList;
     QSlider *slider;
 
     // 是否正在播放

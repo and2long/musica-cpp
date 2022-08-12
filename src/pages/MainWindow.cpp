@@ -41,10 +41,15 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
     connect(bottomBar->btnVolume, &VolumeButton::clicked, this, &MainWindow::onVolumeBtnClicked);
+    connect(bottomBar->btnList, &VolumeButton::clicked, this, &MainWindow::onListBtnClicked);
     // 音量控制条
     volumeSlider = new VolumeSlider(this);
     volumeSlider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 45);
     volumeSlider->hide();
+    // 播放列表
+    playList = new PlayList(this);
+    playList->move(WINDOW_WIDTH - PLAY_LIST_WIDTH, TOP_BAR_HEIGHT);
+    playList->hide();
 }
 
 void MainWindow::menuClicked(int index)
@@ -71,6 +76,20 @@ void MainWindow::onVolumeBtnClicked()
     {
         volumeSlider->hide();
         bottomBar->btnVolume->setStyleSheet("");
+    }
+}
+
+void MainWindow::onListBtnClicked()
+{
+    if (playList->isHidden())
+    {
+        playList->show();
+        bottomBar->btnList->setStyleSheet("background-color: black; border-radius: 8px;");
+    }
+    else
+    {
+        playList->hide();
+        bottomBar->btnList->setStyleSheet("");
     }
 }
 

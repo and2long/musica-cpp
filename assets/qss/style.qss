@@ -122,7 +122,29 @@ QSlider::handle:horizontal {
     border-radius: 4px;
 }
 
+/*音量条*/
 VolumeSlider #bg{
     background-color: #575757;
     border-radius: 5px;
 }
+
+/*播放列表*/
+PlayList #bg{
+    background-color: #363636;
+}
+PlayList #title{
+    font-size: 18px;
+    padding-left: 10px;
+    color: #b9b9b9;
+}
+PlayList #count{
+    font-size: 12px;
+    padding-left: 10px;
+    color: #5e5e5e;
+}
+PlayList #clear{
+    font-size: 12px;
+    padding-right: 10px;
+    color: #8fb8e2;
+}
+

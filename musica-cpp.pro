@@ -13,6 +13,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/components/playlist.cpp \
     src/main.cpp \
     src/components/BottomBar.cpp \
     src/components/ClickedLabel.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
     src/utils/CommonUtil.cpp
 
 HEADERS += \
+    src/components/playlist.h \
     src/constants.h \
     src/components/BottomBar.h \
     src/components/ClickedLabel.h \

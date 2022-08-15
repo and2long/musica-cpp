@@ -5,9 +5,8 @@
 #include <QListWidget>
 #include <QWidget>
 
-class FavoritePage : public QWidget
-{
-    Q_OBJECT
+class FavoritePage : public QWidget {
+Q_OBJECT
 public:
     explicit FavoritePage(QWidget *parent = nullptr);
 
@@ -17,10 +16,13 @@ private:
     QListWidget *items;
 
 signals:
+
     void songDoubleClicked(Song song);
 
 public slots:
+
     void onSongDoubleClickEvent(Song song);
+
     void onFavoriteIconClickEvent();
 };
 

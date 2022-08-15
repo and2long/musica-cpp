@@ -3,10 +3,9 @@
 #include "src/utils/CommonUtil.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
-    : QWidget{parent}, song(s)
-{
+        : QWidget{parent}, song(s) {
     // 背景
-    QLabel *bg = new QLabel(this);
+    auto *bg = new QLabel(this);
     bg->setFixedSize(WINDOW_WIDTH, BOTTOM_BAR_HEIGHT);
     bg->setObjectName("bg");
 
@@ -66,37 +65,28 @@ BottomBar::BottomBar(Song s, QWidget *parent)
     connect(slider, &QSlider::sliderMoved, player, &QMediaPlayer::setPosition);
 }
 
-void BottomBar::positionChanged(qint64 position)
-{
-    if (position <= song.duration)
-    {
+void BottomBar::positionChanged(qint64 position) {
+    if (position <= song.duration) {
         songDuration->setText(CommonUtil::formatDuration(position) + " / " + CommonUtil::formatDuration(song.duration));
     }
 }
 
-void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorString)
-{
+void BottomBar::errorOccurred(QMediaPlayer::Error error, const QString &errorString) {
     qDebug() << error << errorString;
     hasError = true;
     playing = false;
     switchBtnStatus(playing);
 }
 
-void BottomBar::bufferProgressChanged(float progress)
-{
+void BottomBar::bufferProgressChanged(float progress) {
     qDebug() << "bufferProgressChanged: " << progress;
 }
 
-void BottomBar::play()
-{
-    if (song.sid != 0 && !hasError)
-    {
-        if (playing)
-        {
+void BottomBar::play() {
+    if (song.sid != 0 && !hasError) {
+        if (playing) {
             player->pause();
-        }
-        else
-        {
+        } else {
             player->play();
         }
         playing = !playing;
@@ -104,12 +94,10 @@ void BottomBar::play()
     }
 }
 
-void BottomBar::onSongDoubleClickEvent(Song value)
-{
+void BottomBar::onSongDoubleClickEvent(Song value) {
     hasError = false;
 
-    if (song.sid == value.sid)
-    {
+    if (song.sid == value.sid) {
         return;
     }
 
@@ -123,7 +111,8 @@ void BottomBar::onSongDoubleClickEvent(Song value)
     songDuration->setText("00:00 / " + CommonUtil::formatDuration(song.duration));
     songDuration->adjustSize();
 
-    player->setSource(QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.sid))));
+    player->setSource(
+            QUrl(QString("http://music.163.com/song/media/outer/url?id=%1.mp3").arg(QString::number(value.sid))));
     player->play();
     playing = true;
     switchBtnStatus(playing);
@@ -131,14 +120,10 @@ void BottomBar::onSongDoubleClickEvent(Song value)
     album->setImageUrl(song.album);
 }
 
-void BottomBar::switchBtnStatus(bool status)
-{
-    if (status)
-    {
+void BottomBar::switchBtnStatus(bool status) {
+    if (status) {
         btnPlay->setPixmap(QPixmap(":/assets/images/ic_pause.svg"));
-    }
-    else
-    {
+    } else {
         btnPlay->setPixmap(QPixmap(":/assets/images/ic_play.svg"));
     }
     slider->setEnabled(status);

@@ -3,9 +3,8 @@
 
 #include <QWidget>
 
-class DownloadPage : public QWidget
-{
-    Q_OBJECT
+class DownloadPage : public QWidget {
+Q_OBJECT
 public:
     explicit DownloadPage(QWidget *parent = nullptr);
 

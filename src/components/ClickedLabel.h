@@ -3,14 +3,15 @@
 
 #include <QLabel>
 
-class ClickedLabel : public QLabel
-{
-    Q_OBJECT
+class ClickedLabel : public QLabel {
+Q_OBJECT
 public:
     ClickedLabel(QWidget *parent = nullptr);
+
     void mouseReleaseEvent(QMouseEvent *ev);
 
 signals:
+
     void clicked();
 };
 

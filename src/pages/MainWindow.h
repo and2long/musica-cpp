@@ -10,17 +10,22 @@
 #include "FavoritePage.h"
 #include "SearchPage.h"
 
-class MainWindow : public QWidget
-{
-    Q_OBJECT
+class MainWindow : public QWidget {
+Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+
+    ~MainWindow() override;
+
 public slots:
+
     void menuClicked(int index);
+
     void onSearch();
+
     void onVolumeBtnClicked();
+
     void onListBtnClicked();
 
 private:
@@ -32,4 +37,5 @@ private:
     FavoritePage *favoritePage;
     PlayList *playList;
 };
+
 #endif // MAINWINDOW_H

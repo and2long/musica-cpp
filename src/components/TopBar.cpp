@@ -4,9 +4,8 @@
 #include <QLabel>
 
 TopBar::TopBar(QWidget *parent)
-    : QWidget{parent}
-{
-    QLabel *bg = new QLabel(this);
+        : QWidget{parent} {
+    auto *bg = new QLabel(this);
     bg->setFixedSize(WINDOW_WIDTH - LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
     bg->setObjectName("bg");
     searchBox = new QLineEdit(this);
@@ -18,11 +17,9 @@ TopBar::TopBar(QWidget *parent)
     connect(searchBox, SIGNAL(returnPressed()), this, SLOT(onSearch()));
 }
 
-void TopBar::onSearch()
-{
+void TopBar::onSearch() {
     QString keyword = searchBox->text();
-    if (keyword != "")
-    {
+    if (keyword != "") {
         emit search(searchBox->text());
     }
 }

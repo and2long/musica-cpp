@@ -3,9 +3,8 @@
 
 #include <QWidget>
 
-class PlayList : public QWidget
-{
-    Q_OBJECT
+class PlayList : public QWidget {
+Q_OBJECT
 public:
     explicit PlayList(QWidget *parent = nullptr);
 

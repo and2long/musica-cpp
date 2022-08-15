@@ -5,17 +5,18 @@
 #include <QLabel>
 #include <QSlider>
 
-class VolumeSlider : public QWidget
-{
-    Q_OBJECT
+class VolumeSlider : public QWidget {
+Q_OBJECT
 public:
     explicit VolumeSlider(QWidget *parent = nullptr);
 
 protected:
-    virtual void enterEvent(QEnterEvent *event);
-    virtual void leaveEvent(QEvent *event);
+    void enterEvent(QEnterEvent *event) override;
+
+    void leaveEvent(QEvent *event) override;
 
 signals:
+
     void enter(bool status);
 
 private:

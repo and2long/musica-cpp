@@ -1,9 +1,9 @@
 #ifndef SONG_H
 #define SONG_H
+
 #include <QJsonObject>
 
-class Song
-{
+class Song {
 public:
     // 歌曲id
     int sid;
@@ -19,7 +19,9 @@ public:
     bool isFavorite;
 
     Song();
+
     Song(int sid, QString name, QString artists, int duration, QString album, bool isFavorite = false);
+
     Song(QJsonObject obj);
 
     QString toString();

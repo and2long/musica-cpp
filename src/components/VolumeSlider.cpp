@@ -2,10 +2,9 @@
 #include "src/constants.h"
 
 VolumeSlider::VolumeSlider(QWidget *parent)
-    : QWidget{parent}
-{
+        : QWidget{parent} {
     // 背景
-    QLabel *bg = new QLabel(this);
+    auto *bg = new QLabel(this);
     bg->setFixedSize(VOLUME_SLIDER_WIDTH, VOLUME_SLIDER_HEIGHT);
     bg->setObjectName("bg");
     // 进度条
@@ -16,13 +15,12 @@ VolumeSlider::VolumeSlider(QWidget *parent)
     slider->setValue(50);
 }
 
-void VolumeSlider::enterEvent(QEnterEvent *event)
-{
-    (void)event;
+void VolumeSlider::enterEvent(QEnterEvent *event) {
+    (void) event;
     emit enter(true);
 }
-void VolumeSlider::leaveEvent(QEvent *event)
-{
-    (void)event;
+
+void VolumeSlider::leaveEvent(QEvent *event) {
+    (void) event;
     emit enter(false);
 }

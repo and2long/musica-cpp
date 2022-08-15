@@ -6,12 +6,10 @@
 #include <QPixmap>
 #include <QEventLoop>
 
-NetworkImage::NetworkImage(QWidget *parent) : QLabel{parent}
-{
+NetworkImage::NetworkImage(QWidget *parent) : QLabel{parent} {
 }
 
-void NetworkImage::setImageUrl(const QString &szUrl)
-{
+void NetworkImage::setImageUrl(const QString &szUrl) {
     QUrl url(szUrl);
     QNetworkAccessManager manager;
     QEventLoop loop;
@@ -20,8 +18,7 @@ void NetworkImage::setImageUrl(const QString &szUrl)
     QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
 
-    if (reply->error() == QNetworkReply::NoError)
-    {
+    if (reply->error() == QNetworkReply::NoError) {
         QByteArray jpegData = reply->readAll();
         QPixmap pixmap;
         pixmap.loadFromData(jpegData);

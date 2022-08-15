@@ -6,17 +6,16 @@
 #include "src/constants.h"
 #include "src/components/VolumeButton.h"
 
-MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
-{
+MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
     setWindowTitle("MUSICA");
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     // 左侧菜单
     leftMenus = new LeftMenus(this);
     // 顶部快捷搜索栏
-    TopBar *topBar = new TopBar(this);
+    auto *topBar = new TopBar(this);
     topBar->move(LEFT_MENUS_WIDTH, 0);
     // 中间层叠容器
-    QWidget *container = new QWidget(this);
+    auto *container = new QWidget(this);
     container->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
     layout = new QStackedLayout();
     layout->setStackingMode(QStackedLayout::StackingMode::StackOne);
@@ -29,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     favoritePage = new FavoritePage();
     layout->addWidget(favoritePage);
     // 下载界面
-    DownloadPage *downloadPage = new DownloadPage();
+    auto *downloadPage = new DownloadPage();
     layout->addWidget(downloadPage);
     // 底部控制栏
     bottomBar = new BottomBar(Song(), this);
@@ -52,53 +51,39 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     playList->hide();
 }
 
-void MainWindow::menuClicked(int index)
-{
+void MainWindow::menuClicked(int index) {
     layout->setCurrentIndex(index);
-    if (index == 0)
-    {
+    if (index == 0) {
         searchPage->setTemplates();
     }
-    if (index == 1)
-    {
+    if (index == 1) {
         favoritePage->initData();
     }
 }
 
-void MainWindow::onVolumeBtnClicked()
-{
-    if (volumeSlider->isHidden())
-    {
+void MainWindow::onVolumeBtnClicked() {
+    if (volumeSlider->isHidden()) {
         volumeSlider->show();
         bottomBar->btnVolume->setStyleSheet("background-color: black; border-radius: 8px;");
-    }
-    else
-    {
+    } else {
         volumeSlider->hide();
         bottomBar->btnVolume->setStyleSheet("");
     }
 }
 
-void MainWindow::onListBtnClicked()
-{
-    if (playList->isHidden())
-    {
+void MainWindow::onListBtnClicked() {
+    if (playList->isHidden()) {
         playList->show();
         bottomBar->btnList->setStyleSheet("background-color: black; border-radius: 8px;");
-    }
-    else
-    {
+    } else {
         playList->hide();
         bottomBar->btnList->setStyleSheet("");
     }
 }
 
-void MainWindow::onSearch()
-{
+void MainWindow::onSearch() {
     layout->setCurrentIndex(0);
     leftMenus->setCurrentRow(0);
 }
 
-MainWindow::~MainWindow()
-{
-}
+MainWindow::~MainWindow() = default;

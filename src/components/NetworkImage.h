@@ -4,7 +4,8 @@
 #include <QWidget>
 #include <QLabel>
 
-class NetworkImage : public QLabel {
+class NetworkImage: public QLabel
+{
 Q_OBJECT
 public:
     explicit NetworkImage(QWidget *parent = nullptr);

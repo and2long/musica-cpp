@@ -6,7 +6,8 @@
 
 #include <src/models/Song.h>
 
-class Database {
+class Database
+{
 public:
     static void init();
 

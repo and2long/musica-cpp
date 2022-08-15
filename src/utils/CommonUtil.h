@@ -3,7 +3,8 @@
 
 #include <QString>
 
-class CommonUtil {
+class CommonUtil
+{
 public:
     // 格式化数字，前面补0
     static QString formatNum(int num);

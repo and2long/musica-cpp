@@ -5,7 +5,8 @@
 #include <QLabel>
 #include <QSlider>
 
-class VolumeSlider : public QWidget {
+class VolumeSlider: public QWidget
+{
 Q_OBJECT
 public:
     explicit VolumeSlider(QWidget *parent = nullptr);

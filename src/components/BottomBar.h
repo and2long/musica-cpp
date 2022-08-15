@@ -10,7 +10,8 @@
 #include "NetworkImage.h"
 #include <QSlider>
 
-class BottomBar : public QWidget {
+class BottomBar: public QWidget
+{
 Q_OBJECT
 public:
     explicit BottomBar(Song song, QWidget *parent = nullptr);

@@ -5,7 +5,8 @@
 #include "src/models/Song.h"
 #include "ClickedLabel.h"
 
-class ItemSong : public QWidget {
+class ItemSong: public QWidget
+{
 Q_OBJECT
 public:
     explicit ItemSong(int index, Song song, QWidget *parent = nullptr);

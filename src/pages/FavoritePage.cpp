@@ -7,13 +7,15 @@
 
 
 FavoritePage::FavoritePage(QWidget *parent)
-        : QWidget{parent} {
+    : QWidget{parent}
+{
     items = new QListWidget(this);
     items->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
     initData();
 }
 
-void FavoritePage::initData() {
+void FavoritePage::initData()
+{
     QList<Song> songs = Database::queryAll();
     items->clear();
     for (int i = 0; i < songs.size(); i++) {
@@ -28,11 +30,13 @@ void FavoritePage::initData() {
     }
 }
 
-void FavoritePage::onSongDoubleClickEvent(Song song) {
+void FavoritePage::onSongDoubleClickEvent(Song song)
+{
     emit songDoubleClicked(song);
 }
 
-void FavoritePage::onFavoriteIconClickEvent() {
+void FavoritePage::onFavoriteIconClickEvent()
+{
     QListWidgetItem *it = items->currentItem();
     items->removeItemWidget(it);
     delete it;

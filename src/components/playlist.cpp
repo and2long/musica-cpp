@@ -4,7 +4,8 @@
 #include <QLabel>
 
 PlayList::PlayList(QWidget *parent)
-        : QWidget{parent} {
+    : QWidget{parent}
+{
     // 背景
     auto *bg = new QLabel(this);
     bg->setFixedSize(PLAY_LIST_WIDTH, PLAY_LIST_HEIGHT);

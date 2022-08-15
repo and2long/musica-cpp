@@ -5,7 +5,8 @@
 #include <QListWidget>
 #include <QWidget>
 
-class FavoritePage : public QWidget {
+class FavoritePage: public QWidget
+{
 Q_OBJECT
 public:
     explicit FavoritePage(QWidget *parent = nullptr);

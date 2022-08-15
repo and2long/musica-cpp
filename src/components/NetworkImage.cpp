@@ -6,10 +6,13 @@
 #include <QPixmap>
 #include <QEventLoop>
 
-NetworkImage::NetworkImage(QWidget *parent) : QLabel{parent} {
+NetworkImage::NetworkImage(QWidget *parent)
+    : QLabel{parent}
+{
 }
 
-void NetworkImage::setImageUrl(const QString &szUrl) {
+void NetworkImage::setImageUrl(const QString &szUrl)
+{
     QUrl url(szUrl);
     QNetworkAccessManager manager;
     QEventLoop loop;

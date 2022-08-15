@@ -2,16 +2,27 @@
 #define CONSTANTS_H
 
 const int WINDOW_HEIGHT = 670;
+
 const int WINDOW_WIDTH = 1000;
+
 const int LEFT_MENUS_WIDTH = 200;
+
 const int TOP_BAR_WIDTH = 800;
+
 const int TOP_BAR_HEIGHT = 50;
+
 const int CONTAINER_WIDTH = 800;
+
 const int CONTAINER_HEIGHT = 560;
+
 const int BOTTOM_BAR_HEIGHT = 68;
+
 const int VOLUME_SLIDER_WIDTH = 30;
+
 const int VOLUME_SLIDER_HEIGHT = 150;
+
 const int PLAY_LIST_WIDTH = 400;
+
 const int PLAY_LIST_HEIGHT = WINDOW_HEIGHT - BOTTOM_BAR_HEIGHT - TOP_BAR_HEIGHT + 10;
 
 #endif // CONSTANTS_H

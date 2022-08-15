@@ -4,7 +4,8 @@
 #include <QWidget>
 #include <QLineEdit>
 
-class TopBar : public QWidget {
+class TopBar: public QWidget
+{
 Q_OBJECT
 public:
     explicit TopBar(QWidget *parent = nullptr);

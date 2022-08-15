@@ -14,17 +14,19 @@
 #include <src/db/database.h>
 
 SearchPage::SearchPage(QWidget *parent)
-        : QWidget{parent} {
+    : QWidget{parent}
+{
     items = new QListWidget(this);
     items->setFixedSize(CONTAINER_WIDTH, CONTAINER_HEIGHT);
 
     setTemplates();
 }
 
-void SearchPage::setData(QByteArray data) {
+void SearchPage::setData(QByteArray data)
+{
     QList<Song> favoriteSongs = Database::queryAll();
     QList<int> ids = {};
-            foreach (Song item, favoriteSongs) {
+        foreach (Song item, favoriteSongs) {
             ids.append(item.sid);
         }
     QJsonParseError error;
@@ -32,7 +34,8 @@ void SearchPage::setData(QByteArray data) {
     if (error.error != QJsonParseError::NoError) {
         qDebug() << "json parse error!\n"
                  << error.errorString();
-    } else {
+    }
+    else {
         items->clear();
         QJsonObject obj = doc.object();
         QJsonObject result = obj.value("result").toObject();
@@ -50,24 +53,28 @@ void SearchPage::setData(QByteArray data) {
     }
 }
 
-void SearchPage::setTemplates() {
+void SearchPage::setTemplates()
+{
     QFile f(":/assets/templates/search_result.json");
 
     if (!f.open(QIODevice::ReadOnly)) {
         qDebug() << "could't open projects json";
         return;
-    } else {
+    }
+    else {
         QByteArray data = f.readAll();
         f.close();
         setData(data);
     }
 }
 
-void SearchPage::onSongDoubleClickEvent(Song song) {
+void SearchPage::onSongDoubleClickEvent(Song song)
+{
     emit songDoubleClicked(song);
 }
 
-void SearchPage::onSearch(QString keyword) {
+void SearchPage::onSearch(QString keyword)
+{
     qDebug() << "搜索关键字：" << keyword;
     QUrl url("http://music.163.com/api/search/get?offset=0&limit=20&total=true&type=1&s=" + keyword);
     QNetworkAccessManager manager;

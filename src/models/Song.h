@@ -3,7 +3,8 @@
 
 #include <QJsonObject>
 
-class Song {
+class Song
+{
 public:
     // 歌曲id
     int sid;

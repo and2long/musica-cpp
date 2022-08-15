@@ -6,7 +6,9 @@
 #include "src/constants.h"
 #include "src/components/VolumeButton.h"
 
-MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
+MainWindow::MainWindow(QWidget *parent)
+    : QWidget(parent)
+{
     setWindowTitle("MUSICA");
     setFixedSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     // 左侧菜单
@@ -51,7 +53,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
     playList->hide();
 }
 
-void MainWindow::menuClicked(int index) {
+void MainWindow::menuClicked(int index)
+{
     layout->setCurrentIndex(index);
     if (index == 0) {
         searchPage->setTemplates();
@@ -61,27 +64,32 @@ void MainWindow::menuClicked(int index) {
     }
 }
 
-void MainWindow::onVolumeBtnClicked() {
+void MainWindow::onVolumeBtnClicked()
+{
     if (volumeSlider->isHidden()) {
         volumeSlider->show();
         bottomBar->btnVolume->setStyleSheet("background-color: black; border-radius: 8px;");
-    } else {
+    }
+    else {
         volumeSlider->hide();
         bottomBar->btnVolume->setStyleSheet("");
     }
 }
 
-void MainWindow::onListBtnClicked() {
+void MainWindow::onListBtnClicked()
+{
     if (playList->isHidden()) {
         playList->show();
         bottomBar->btnList->setStyleSheet("background-color: black; border-radius: 8px;");
-    } else {
+    }
+    else {
         playList->hide();
         bottomBar->btnList->setStyleSheet("");
     }
 }
 
-void MainWindow::onSearch() {
+void MainWindow::onSearch()
+{
     layout->setCurrentIndex(0);
     leftMenus->setCurrentRow(0);
 }

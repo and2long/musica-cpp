@@ -4,7 +4,8 @@
 #include <QLabel>
 
 TopBar::TopBar(QWidget *parent)
-        : QWidget{parent} {
+    : QWidget{parent}
+{
     auto *bg = new QLabel(this);
     bg->setFixedSize(WINDOW_WIDTH - LEFT_MENUS_WIDTH, TOP_BAR_HEIGHT);
     bg->setObjectName("bg");
@@ -17,7 +18,8 @@ TopBar::TopBar(QWidget *parent)
     connect(searchBox, SIGNAL(returnPressed()), this, SLOT(onSearch()));
 }
 
-void TopBar::onSearch() {
+void TopBar::onSearch()
+{
     QString keyword = searchBox->text();
     if (keyword != "") {
         emit search(searchBox->text());

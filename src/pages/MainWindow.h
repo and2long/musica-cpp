@@ -10,7 +10,8 @@
 #include "FavoritePage.h"
 #include "SearchPage.h"
 
-class MainWindow : public QWidget {
+class MainWindow: public QWidget
+{
 Q_OBJECT
 
 public:

@@ -4,7 +4,8 @@
 #include <QWidget>
 #include <QListWidgetItem>
 
-class LeftMenus : public QWidget {
+class LeftMenus: public QWidget
+{
 Q_OBJECT
 public:
     explicit LeftMenus(QWidget *parent = nullptr);

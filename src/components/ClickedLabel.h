@@ -3,7 +3,8 @@
 
 #include <QLabel>
 
-class ClickedLabel : public QLabel {
+class ClickedLabel: public QLabel
+{
 Q_OBJECT
 public:
     ClickedLabel(QWidget *parent = nullptr);

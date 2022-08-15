@@ -2,7 +2,8 @@
 #include "src/constants.h"
 
 VolumeSlider::VolumeSlider(QWidget *parent)
-        : QWidget{parent} {
+    : QWidget{parent}
+{
     // 背景
     auto *bg = new QLabel(this);
     bg->setFixedSize(VOLUME_SLIDER_WIDTH, VOLUME_SLIDER_HEIGHT);
@@ -15,12 +16,14 @@ VolumeSlider::VolumeSlider(QWidget *parent)
     slider->setValue(50);
 }
 
-void VolumeSlider::enterEvent(QEnterEvent *event) {
+void VolumeSlider::enterEvent(QEnterEvent *event)
+{
     (void) event;
     emit enter(true);
 }
 
-void VolumeSlider::leaveEvent(QEvent *event) {
+void VolumeSlider::leaveEvent(QEvent *event)
+{
     (void) event;
     emit enter(false);
 }

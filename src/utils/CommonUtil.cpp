@@ -5,7 +5,8 @@
 
 using namespace std;
 
-QString CommonUtil::formatNum(int num) {
+QString CommonUtil::formatNum(int num)
+{
     if (num >= 100) {
         return QString::number(num);
     }
@@ -16,7 +17,8 @@ QString CommonUtil::formatNum(int num) {
     return QString::fromStdString(ss);
 }
 
-QString CommonUtil::formatDuration(int duration) {
+QString CommonUtil::formatDuration(int duration)
+{
     int d = duration / 1000;
     int min = d / 60;
     int sec = d % 60;

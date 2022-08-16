@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(musica-cpp)
+project(musica)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -11,7 +11,7 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia Sql)
 
-add_executable(musica-cpp
+add_executable(musica
         src/main.cpp
         src/components/playlist.cpp
         src/components/BottomBar.cpp
@@ -49,7 +49,7 @@ add_executable(musica-cpp
         assets.qrc
         )
 
-target_link_libraries(musica-cpp
+target_link_libraries(musica
         Qt6::Widgets
         Qt6::Multimedia
         Qt6::Sql

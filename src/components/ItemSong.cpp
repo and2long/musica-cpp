@@ -47,10 +47,10 @@ void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
 void ItemSong::favoriteBtnClickEvent()
 {
     if (song.isFavorite) {
-        Database::remove(song);
+        Database::removeFavoriteItem(song);
     }
     else {
-        Database::insert(song);
+        Database::insertFavoriteItem(song);
     }
     song.isFavorite = !song.isFavorite;
     setFavoriteIcon(song);

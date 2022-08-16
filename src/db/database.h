@@ -11,13 +11,21 @@ class Database
 public:
     static void init();
 
-    static QList<Song> queryAll();
+    static QList<Song> queryAllFavoriteItems();
 
-    static void insert(Song song);
+    static void insertFavoriteItem(Song song);
 
-    static void remove(Song song);
+    static void removeFavoriteItem(Song song);
 
-    static bool exist(int sid);
+    static bool existFavoriteItem(int sid);
+
+    static QList<Song> queryAllPlayListItems();
+
+    static void insertPlayListItem(Song song);
+
+    static void removePlayListItem(Song song);
+
+    static bool existPlayListItem(int sid);
 };
 
 #endif // DATABASE_H

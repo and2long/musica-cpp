@@ -24,7 +24,7 @@ SearchPage::SearchPage(QWidget *parent)
 
 void SearchPage::setData(QByteArray data)
 {
-    QList<Song> favoriteSongs = Database::queryAll();
+    QList<Song> favoriteSongs = Database::queryAllFavoriteItems();
     QList<int> ids = {};
         foreach (Song item, favoriteSongs) {
             ids.append(item.sid);

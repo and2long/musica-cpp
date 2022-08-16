@@ -16,7 +16,7 @@ FavoritePage::FavoritePage(QWidget *parent)
 
 void FavoritePage::initData()
 {
-    QList<Song> songs = Database::queryAll();
+    QList<Song> songs = Database::queryAllFavoriteItems();
     items->clear();
     for (int i = 0; i < songs.size(); i++) {
         Song song = songs[i];

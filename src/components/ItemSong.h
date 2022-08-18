@@ -11,11 +11,11 @@ Q_OBJECT
 public:
     explicit ItemSong(int index, Song song, QWidget *parent = nullptr);
 
-    void mouseDoubleClickEvent(QMouseEvent *ev);
+    void mouseDoubleClickEvent(QMouseEvent *ev) override;
 
     void favoriteBtnClickEvent();
 
-    void setFavoriteIcon(Song song);
+    void setFavoriteIcon();
 
     Song song;
     ClickedLabel *favoriteBtn;

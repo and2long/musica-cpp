@@ -53,7 +53,7 @@ QList<Song> Database::queryAllFavoriteItems()
     return results;
 }
 
-void Database::insertFavoriteItem(Song song)
+void Database::insertFavoriteItem(Song &song)
 {
     if (existFavoriteItem(song.sid)) return;
     QSqlQuery query;
@@ -62,7 +62,7 @@ void Database::insertFavoriteItem(Song song)
                         song.album));
 }
 
-void Database::removeFavoriteItem(Song song)
+void Database::removeFavoriteItem(Song &song)
 {
     QSqlQuery query;
     query.exec(QString("DELETE FROM favorites WHERE sid = %1").arg(song.sid));
@@ -92,7 +92,7 @@ QList<Song> Database::queryAllPlayListItems()
     return results;
 }
 
-void Database::insertPlayListItem(Song song)
+void Database::insertPlayListItem(Song &song)
 {
     if (existPlayListItem(song.sid)) return;
     QSqlQuery query;
@@ -101,7 +101,7 @@ void Database::insertPlayListItem(Song song)
                         song.album));
 }
 
-void Database::removePlayListItem(Song song)
+void Database::removePlayListItem(Song &song)
 {
     QSqlQuery query;
     query.exec(QString("DELETE FROM playlist WHERE sid = %1").arg(song.sid));

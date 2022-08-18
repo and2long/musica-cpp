@@ -13,17 +13,17 @@ public:
 
     static QList<Song> queryAllFavoriteItems();
 
-    static void insertFavoriteItem(Song song);
+    static void insertFavoriteItem(Song &song);
 
-    static void removeFavoriteItem(Song song);
+    static void removeFavoriteItem(Song &song);
 
     static bool existFavoriteItem(int sid);
 
     static QList<Song> queryAllPlayListItems();
 
-    static void insertPlayListItem(Song song);
+    static void insertPlayListItem(Song &song);
 
-    static void removePlayListItem(Song song);
+    static void removePlayListItem(Song &song);
 
     static bool existPlayListItem(int sid);
 };

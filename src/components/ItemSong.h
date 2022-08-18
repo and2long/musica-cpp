@@ -9,20 +9,20 @@ class ItemSong: public QWidget
 {
 Q_OBJECT
 public:
-    explicit ItemSong(int index, Song song, QWidget *parent = nullptr);
+    explicit ItemSong(int index, const Song &song, QWidget *parent = nullptr);
 
     void mouseDoubleClickEvent(QMouseEvent *ev) override;
 
     void favoriteBtnClickEvent();
 
-    void setFavoriteIcon();
+    void setFavoriteIcon() const;
 
     Song song;
     ClickedLabel *favoriteBtn;
 
 signals:
 
-    void doubleClicked(Song song);
+    void doubleClicked(Song &song);
 
     void favoriteIconClicked();
 };

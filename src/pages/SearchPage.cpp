@@ -22,7 +22,7 @@ SearchPage::SearchPage(QWidget *parent)
     setTemplates();
 }
 
-void SearchPage::setData(QByteArray data)
+void SearchPage::setData(const QByteArray &data)
 {
     QList<Song> favoriteSongs = Database::queryAllFavoriteItems();
     QList<int> ids = {};
@@ -68,12 +68,12 @@ void SearchPage::setTemplates()
     }
 }
 
-void SearchPage::onSongDoubleClickEvent(Song song)
+void SearchPage::onSongDoubleClickEvent(Song &song)
 {
     emit songDoubleClicked(song);
 }
 
-void SearchPage::onSearch(QString keyword)
+void SearchPage::onSearch(const QString &keyword)
 {
     qDebug() << "搜索关键字：" << keyword;
     QUrl url("http://music.163.com/api/search/get?offset=0&limit=20&total=true&type=1&s=" + keyword);

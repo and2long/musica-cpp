@@ -4,7 +4,6 @@
 #include "DownloadPage.h"
 #include "FavoritePage.h"
 #include "src/constants.h"
-#include "src/components/VolumeButton.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -41,8 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
     connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
     connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
-    connect(bottomBar->btnVolume, &VolumeButton::clicked, this, &MainWindow::onVolumeBtnClicked);
-    connect(bottomBar->btnList, &VolumeButton::clicked, this, &MainWindow::onListBtnClicked);
+    connect(bottomBar->btnVolume, &ClickedLabel::clicked, this, &MainWindow::onVolumeBtnClicked);
+    connect(bottomBar->btnList, &ClickedLabel::clicked, this, &MainWindow::onListBtnClicked);
     // 音量控制条
     volumeSlider = new VolumeSlider(this);
     volumeSlider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 45);

@@ -7,9 +7,9 @@ class Song
 {
 public:
     // 歌曲id
-    int sid;
+    int sid = 0;
     // 歌曲时长
-    int duration;
+    int duration = 0;
     // 歌曲名
     QString name;
     // 歌曲演唱者
@@ -17,13 +17,13 @@ public:
     // 专辑封面
     QString album;
     // 是否被收藏
-    bool isFavorite;
+    bool isFavorite = false;
 
     Song();
 
     Song(int sid, QString name, QString artists, int duration, QString album, bool isFavorite = false);
 
-    Song(QJsonObject obj);
+    Song(const QJsonObject &obj);
 
     QString toString();
 };

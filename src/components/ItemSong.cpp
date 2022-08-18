@@ -5,7 +5,7 @@
 #include "src/utils/CommonUtil.h"
 #include "src/db/database.h"
 
-ItemSong::ItemSong(int index, Song song, QWidget *parent)
+ItemSong::ItemSong(int index, const Song &song, QWidget *parent)
     : QWidget{parent}, song(song)
 {
     auto *layout = new QHBoxLayout;
@@ -15,7 +15,7 @@ ItemSong::ItemSong(int index, Song song, QWidget *parent)
 
     QList stretchValues = {2, 0, 9, 5, 3};
     QStringList titles = {CommonUtil::formatNum(index + 1), "", song.name, song.artists,
-        CommonUtil::formatDuration(song.duration)};
+                          CommonUtil::formatDuration(song.duration)};
     for (int i = 0; i < stretchValues.length(); i++) {
         if (i == 1) {
             // 收藏按钮
@@ -57,7 +57,7 @@ void ItemSong::favoriteBtnClickEvent()
     emit favoriteIconClicked();
 }
 
-void ItemSong::setFavoriteIcon()
+void ItemSong::setFavoriteIcon() const
 {
     favoriteBtn->setPixmap(
         QPixmap(QString(":/assets/images/ic_favorite_%1.svg").arg(song.isFavorite ? "fill" : "off")));

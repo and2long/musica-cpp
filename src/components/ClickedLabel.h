@@ -7,9 +7,9 @@ class ClickedLabel: public QLabel
 {
 Q_OBJECT
 public:
-    ClickedLabel(QWidget *parent = nullptr);
+    explicit ClickedLabel(QWidget *parent = nullptr);
 
-    void mouseReleaseEvent(QMouseEvent *ev);
+    void mouseReleaseEvent(QMouseEvent *ev) override;
 
 signals:
 

@@ -18,11 +18,11 @@ private:
 
 signals:
 
-    void songDoubleClicked(Song song);
+    void songDoubleClicked(Song &song);
 
 public slots:
 
-    void onSongDoubleClickEvent(Song song);
+    void onSongDoubleClickEvent(Song &song);
 
     void onFavoriteIconClickEvent();
 };

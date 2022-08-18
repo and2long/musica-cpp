@@ -14,7 +14,7 @@ class BottomBar: public QWidget
 {
 Q_OBJECT
 public:
-    explicit BottomBar(Song song, QWidget *parent = nullptr);
+    explicit BottomBar(Song s, QWidget *parent = nullptr);
 
     ClickedLabel *btnVolume;
     ClickedLabel *btnList;
@@ -25,7 +25,7 @@ public slots:
     void play();
 
     // 歌曲列表点击事件
-    void onSongDoubleClickEvent(Song value);
+    void onSongDoubleClickEvent(const Song& value);
 
     // 播放器事件
     void errorOccurred(QMediaPlayer::Error error, const QString &errorString);
@@ -46,7 +46,7 @@ private:
     QSlider *slider;
 
     // 是否正在播放
-    bool playing;
+    bool playing = false;
 
     // 切换播放按钮状态
     void switchBtnStatus(bool status);
@@ -54,7 +54,7 @@ private:
     // 当前歌曲
     Song song;
     // 是否有错误
-    bool hasError;
+    bool hasError = false;
 };
 
 #endif // BOTTOMBAR_H

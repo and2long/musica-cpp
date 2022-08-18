@@ -1,9 +1,11 @@
 ﻿#include "BottomBar.h"
+
+#include <utility>
 #include "src/constants.h"
 #include "src/utils/CommonUtil.h"
 
 BottomBar::BottomBar(Song s, QWidget *parent)
-    : QWidget{parent}, song(s)
+    : QWidget{parent}, song(std::move(s))
 {
     // 背景
     auto *bg = new QLabel(this);
@@ -100,7 +102,7 @@ void BottomBar::play()
     }
 }
 
-void BottomBar::onSongDoubleClickEvent(Song value)
+void BottomBar::onSongDoubleClickEvent(const Song& value)
 {
     hasError = false;
 

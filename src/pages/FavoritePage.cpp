@@ -30,7 +30,7 @@ void FavoritePage::initData()
     }
 }
 
-void FavoritePage::onSongDoubleClickEvent(Song song)
+void FavoritePage::onSongDoubleClickEvent(Song &song)
 {
     emit songDoubleClicked(song);
 }

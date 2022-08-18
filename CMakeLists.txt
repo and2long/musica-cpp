@@ -19,7 +19,6 @@ add_executable(musica
         src/components/ItemSong.cpp
         src/components/LeftMenus.cpp
         src/components/NetworkImage.cpp
-        src/components/VolumeButton.cpp
         src/components/VolumeSlider.cpp
         src/components/TopBar.cpp
         src/db/database.cpp
@@ -37,7 +36,6 @@ add_executable(musica
         src/components/LeftMenus.h
         src/components/NetworkImage.h
         src/components/TopBar.h
-        src/components/VolumeButton.h
         src/components/VolumeSlider.h
         src/db/database.h
         src/pages/MainWindow.h

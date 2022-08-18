@@ -1,22 +1,23 @@
 #include "Song.h"
 #include <QJsonArray>
+#include <utility>
 
 Song::Song()
 {
     sid = 0;
-};
+}
 
 Song::Song(int songId, QString songName, QString songArtists, int songDuration, QString songAlbum, bool favorite)
 {
     sid = songId;
-    name = songName;
     duration = songDuration;
-    artists = songArtists;
-    album = songAlbum;
     isFavorite = favorite;
-};
+    name = std::move(songName);
+    artists = std::move(songArtists);
+    album = std::move(songAlbum);
+}
 
-Song::Song(QJsonObject song)
+Song::Song(const QJsonObject &song)
 {
     int songId = song.value("id").toInt();
     int songDuration = song.value("duration").toInt();

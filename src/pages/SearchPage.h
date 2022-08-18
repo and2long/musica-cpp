@@ -12,7 +12,7 @@ public:
     explicit SearchPage(QWidget *parent = nullptr);
 
     // 设置数据
-    void setData(QByteArray data);
+    void setData(const QByteArray& data);
 
     // 设置模版数据
     void setTemplates();
@@ -22,13 +22,13 @@ private:
 
 public slots:
 
-    void onSongDoubleClickEvent(Song song);
+    void onSongDoubleClickEvent(Song &song);
 
-    void onSearch(QString keyword);
+    void onSearch(const QString& keyword);
 
 signals:
 
-    void songDoubleClicked(Song song);
+    void songDoubleClicked(Song &song);
 };
 
 #endif // SEARCHPAGE_H

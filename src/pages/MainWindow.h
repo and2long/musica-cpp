@@ -29,6 +29,8 @@ public slots:
 
     void onListBtnClicked();
 
+    void onFindBtnClicked();
+
 private:
     LeftMenus *leftMenus;
     QStackedLayout *layout;

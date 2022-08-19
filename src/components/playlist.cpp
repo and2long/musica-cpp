@@ -1,8 +1,6 @@
 #include "playlist.h"
 #include "src/constants.h"
-#include "ClickedLabel.h"
 
-#include <QLabel>
 #include <QStackedLayout>
 
 PlayList::PlayList(QWidget *parent)
@@ -60,16 +58,16 @@ PlayList::PlayList(QWidget *parent)
     auto emptyView = new QWidget();
     emptyView->setFixedSize(*containerSize);
     auto *tipTitle = new QLabel("你还没有添加任何歌曲！", emptyView);
-    auto *tipSubtitle = new ClickedLabel(emptyView);
-    tipSubtitle->setText("去首页发现音乐");
+    btnFind = new ClickedLabel(emptyView);
+    btnFind->setText("去首页发现音乐");
     tipTitle->setObjectName("tipTitle");
-    tipSubtitle->setObjectName("tipSubtitle");
+    btnFind->setObjectName("tipSubtitle");
     tipTitle->setFixedWidth(PLAY_LIST_WIDTH);
-    tipSubtitle->setFixedWidth(PLAY_LIST_WIDTH);
+    btnFind->setFixedWidth(PLAY_LIST_WIDTH);
     tipTitle->setAlignment(Qt::AlignHCenter);
-    tipSubtitle->setAlignment(Qt::AlignHCenter);
+    btnFind->setAlignment(Qt::AlignHCenter);
     tipTitle->move(0, 100);
-    tipSubtitle->move(0, 130);
+    btnFind->move(0, 130);
 
     containerLayout->addWidget(emptyView);
 }

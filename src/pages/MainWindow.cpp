@@ -34,14 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
     // 底部控制栏
     bottomBar = new BottomBar(Song(), this);
     bottomBar->move(0, 610);
-    // 连接
-    connect(searchPage, &SearchPage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
-    connect(favoritePage, &FavoritePage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
-    connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
-    connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
-    connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
-    connect(bottomBar->btnVolume, &ClickedLabel::clicked, this, &MainWindow::onVolumeBtnClicked);
-    connect(bottomBar->btnList, &ClickedLabel::clicked, this, &MainWindow::onListBtnClicked);
     // 音量控制条
     volumeSlider = new VolumeSlider(this);
     volumeSlider->move(WINDOW_WIDTH - 90, WINDOW_HEIGHT - VOLUME_SLIDER_HEIGHT - 45);
@@ -50,6 +42,15 @@ MainWindow::MainWindow(QWidget *parent)
     playList = new PlayList(this);
     playList->move(WINDOW_WIDTH - PLAY_LIST_WIDTH, TOP_BAR_HEIGHT);
     playList->hide();
+    // 连接
+    connect(searchPage, &SearchPage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
+    connect(favoritePage, &FavoritePage::songDoubleClicked, bottomBar, &BottomBar::onSongDoubleClickEvent);
+    connect(topBar, &TopBar::search, searchPage, &SearchPage::onSearch);
+    connect(topBar, &TopBar::search, this, &MainWindow::onSearch);
+    connect(leftMenus, &LeftMenus::menuClicked, this, &MainWindow::menuClicked);
+    connect(bottomBar->btnVolume, &ClickedLabel::clicked, this, &MainWindow::onVolumeBtnClicked);
+    connect(bottomBar->btnList, &ClickedLabel::clicked, this, &MainWindow::onListBtnClicked);
+    connect(playList->btnFind, &ClickedLabel::clicked, this, &MainWindow::onFindBtnClicked);
 }
 
 void MainWindow::menuClicked(int index)
@@ -93,4 +94,10 @@ void MainWindow::onSearch()
     leftMenus->setCurrentRow(0);
 }
 
+void MainWindow::onFindBtnClicked()
+{
+    bottomBar->btnList->clicked();
+    layout->setCurrentIndex(0);
+    leftMenus->setCurrentRow(0);
+}
 MainWindow::~MainWindow() = default;

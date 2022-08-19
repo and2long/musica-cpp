@@ -158,20 +158,20 @@ PlayList #count{
     padding-left: 10px;
     color: #5e5e5e;
 }
-PlayList #clear{
+PlayList #btnClear{
     font-size: 12px;
     padding-right: 10px;
     color: #8fb8e2;
 }
-PlayList #tipTitle{
+PlayList #tip{
     color: #5e5e5e;
     font-size: 14px;
 }
-PlayList #tipSubtitle{
+PlayList #btnFind{
     color: #b9b9b9;
     font-size: 12px;
     text-decoration: underline;
 }
-PlayList #tipSubtitle:hover{
+PlayList #btnFind:hover{
     color: #ffffff;
 }

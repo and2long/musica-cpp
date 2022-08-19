@@ -25,6 +25,8 @@ public:
 
     static void removePlayListItem(Song &song);
 
+    static void removeAllPlayListItems();
+
     static bool existPlayListItem(int sid);
 };
 

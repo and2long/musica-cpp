@@ -14,7 +14,7 @@ void Database::init()
         if (!tables.contains("favorites")) {
             QSqlQuery query;
             query.prepare(
-                "create table favorites (id int primary key, sid int, duration int, name varchar(100), artists varchar(30), album varchar(100))");
+                "CREATE TABLE favorites (id int primary key, sid int, duration int, name varchar(100), artists varchar(30), album varchar(100))");
             if (!query.exec()) {
                 qDebug() << "Error: Fail to create favorites table." << query.lastError();
             }
@@ -25,7 +25,7 @@ void Database::init()
         if (!tables.contains("playlist")) {
             QSqlQuery query;
             query.prepare(
-                "create table playlist (id int primary key, sid int, duration int, name varchar(100), artists varchar(30), album varchar(100))");
+                "CREATE TABLE playlist (id int primary key, sid int, duration int, name varchar(100), artists varchar(30), album varchar(100))");
             if (!query.exec()) {
                 qDebug() << "Error: Fail to create playlist table." << query.lastError();
             }
@@ -39,7 +39,7 @@ void Database::init()
 QList<Song> Database::queryAllFavoriteItems()
 {
     QSqlQuery query;
-    query.exec("select * from favorites");
+    query.exec("SELECT * FROM favorites");
     QList<Song> results = {};
     while (query.next()) {
         int sid = query.value("sid").toInt();
@@ -78,7 +78,7 @@ bool Database::existFavoriteItem(int sid)
 QList<Song> Database::queryAllPlayListItems()
 {
     QSqlQuery query;
-    query.exec("select * from playlist");
+    query.exec("SELECT * FROM playlist");
     QList<Song> results = {};
     while (query.next()) {
         int sid = query.value("sid").toInt();
@@ -112,4 +112,10 @@ bool Database::existPlayListItem(int sid)
     QSqlQuery query;
     query.exec(QString("SELECT 1 FROM playlist WHERE sid = %1 LIMIT 1").arg(sid));
     return query.next();
+}
+
+void Database::removeAllPlayListItems()
+{
+    QSqlQuery query;
+    query.exec("DELETE FROM playlist");
 }

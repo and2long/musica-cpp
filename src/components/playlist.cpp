@@ -45,27 +45,28 @@ PlayList::PlayList(QWidget *parent)
     count->setObjectName("count");
     count->setAlignment(Qt::AlignLeft);
 
-    auto *clear = new ClickedLabel();
-    clear->setText("清空列表");
-    clear->setFixedWidth(PLAY_LIST_WIDTH / 2);
-    clear->setObjectName("clear");
-    clear->setAlignment(Qt::AlignRight);
+    auto *btnClear = new ClickedLabel();
+    btnClear->setText("清空列表");
+    btnClear->setFixedWidth(PLAY_LIST_WIDTH / 2);
+    btnClear->setObjectName("btnClear");
+    btnClear->setAlignment(Qt::AlignRight);
+    connect(btnClear, &ClickedLabel::clicked, this, &PlayList::onBtnClearClicked);
 
     rowLayout->addWidget(count);
-    rowLayout->addWidget(clear);
+    rowLayout->addWidget(btnClear);
 
     auto emptyView = new QWidget();
     emptyView->setFixedSize(containerSize);
-    auto *tipTitle = new QLabel("你还没有添加任何歌曲！", emptyView);
+    auto *tip = new QLabel("你还没有添加任何歌曲！", emptyView);
     btnFind = new ClickedLabel(emptyView);
     btnFind->setText("去首页发现音乐");
-    tipTitle->setObjectName("tipTitle");
-    btnFind->setObjectName("tipSubtitle");
-    tipTitle->setFixedWidth(PLAY_LIST_WIDTH);
+    tip->setObjectName("tip");
+    btnFind->setObjectName("btnFind");
+    tip->setFixedWidth(PLAY_LIST_WIDTH);
     btnFind->setFixedWidth(PLAY_LIST_WIDTH);
-    tipTitle->setAlignment(Qt::AlignHCenter);
+    tip->setAlignment(Qt::AlignHCenter);
     btnFind->setAlignment(Qt::AlignHCenter);
-    tipTitle->move(0, 100);
+    tip->move(0, 100);
     btnFind->move(0, 130);
 
     containerLayout->addWidget(emptyView);
@@ -97,4 +98,10 @@ void PlayList::initData() const
         items->addItem(item);
         items->setItemWidget(item, widget);
     }
+}
+void PlayList::onBtnClearClicked() const
+{
+    items->clear();
+    containerLayout->setCurrentIndex(0);
+    Database::removeAllPlayListItems();
 }

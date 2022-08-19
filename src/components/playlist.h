@@ -17,6 +17,10 @@ public:
     QListWidget *items;
 
     void initData() const;
+
+public slots:
+    void onBtnClearClicked() const;
+
 signals:
 };
 

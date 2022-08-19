@@ -93,6 +93,10 @@ void MainWindow::onSearch()
 {
     layout->setCurrentIndex(0);
     leftMenus->setCurrentRow(0);
+    if (!playList->isHidden()) {
+        playList->hide();
+        bottomBar->btnList->setStyleSheet("");
+    }
 }
 
 void MainWindow::onFindBtnClicked()

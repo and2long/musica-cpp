@@ -129,7 +129,10 @@ VolumeSlider #bg{
 }
 
 /*播放列表*/
-PlayList #bg{
+PlayList #header{
+    background-color: #363636;
+}
+PlayList #container{
     background-color: #363636;
 }
 PlayList #title{
@@ -147,8 +150,15 @@ PlayList #clear{
     padding-right: 10px;
     color: #8fb8e2;
 }
-PlayList #emptyContainer{
-    font-size: 14px;
+PlayList #tipTitle{
     color: #5e5e5e;
+    font-size: 14px;
 }
-
+PlayList #tipSubtitle{
+    color: #b9b9b9;
+    font-size: 12px;
+    text-decoration: underline;
+}
+PlayList #tipSubtitle:hover{
+    color: #ffffff;
+}

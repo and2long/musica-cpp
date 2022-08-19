@@ -147,4 +147,8 @@ PlayList #clear{
     padding-right: 10px;
     color: #8fb8e2;
 }
+PlayList #emptyContainer{
+    font-size: 14px;
+    color: #5e5e5e;
+}
 

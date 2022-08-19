@@ -41,6 +41,7 @@ ItemSong::ItemSong(int index, const Song &song, QWidget *parent)
 void ItemSong::mouseDoubleClickEvent(QMouseEvent *ev)
 {
     (void) ev;
+    Database::insertPlayListItem(song);
     emit doubleClicked(song);
 }
 

@@ -80,6 +80,7 @@ void MainWindow::onListBtnClicked()
 {
     if (playList->isHidden()) {
         playList->show();
+        playList->initData();
         bottomBar->btnList->setStyleSheet("background-color: black; border-radius: 8px;");
     }
     else {

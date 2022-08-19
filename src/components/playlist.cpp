@@ -1,31 +1,30 @@
 #include "playlist.h"
 #include "src/constants.h"
-
-#include <QStackedLayout>
+#include "src/db/database.h"
+#include "ItemSong.h"
 
 PlayList::PlayList(QWidget *parent)
     : QWidget{parent}
 {
-
     int headerHeight = 80;
-    auto *headerSize = new QSize(PLAY_LIST_WIDTH, headerHeight);
-    auto *containerSize = new QSize(PLAY_LIST_WIDTH, PLAY_LIST_HEIGHT - headerHeight);
+    auto headerSize = QSize(PLAY_LIST_WIDTH, headerHeight);
+    auto containerSize = QSize(PLAY_LIST_WIDTH, PLAY_LIST_HEIGHT - headerHeight);
 
-    this->setObjectName("root");
+    setObjectName("root");
     auto *rootLayout = new QVBoxLayout();
     rootLayout->setContentsMargins(0, 0, 0, 0);
     rootLayout->setSpacing(0);
-    this->setLayout(rootLayout);
+    setLayout(rootLayout);
 
     auto header = new QWidget();
-    header->setFixedSize(*headerSize);
+    header->setFixedSize(headerSize);
     header->setObjectName("header");
     rootLayout->addWidget(header);
 
     auto container = new QWidget();
-    container->setFixedSize(*containerSize);
+    container->setFixedSize(containerSize);
     container->setObjectName("container");
-    auto containerLayout = new QStackedLayout();
+    containerLayout = new QStackedLayout();
     container->setLayout(containerLayout);
     rootLayout->addWidget(container);
 
@@ -56,7 +55,7 @@ PlayList::PlayList(QWidget *parent)
     rowLayout->addWidget(clear);
 
     auto emptyView = new QWidget();
-    emptyView->setFixedSize(*containerSize);
+    emptyView->setFixedSize(containerSize);
     auto *tipTitle = new QLabel("你还没有添加任何歌曲！", emptyView);
     btnFind = new ClickedLabel(emptyView);
     btnFind->setText("去首页发现音乐");
@@ -70,4 +69,32 @@ PlayList::PlayList(QWidget *parent)
     btnFind->move(0, 130);
 
     containerLayout->addWidget(emptyView);
+    items = new QListWidget();
+    items->setFixedSize(containerSize);
+    containerLayout->addWidget(items);
+}
+
+void PlayList::initData() const
+{
+    QList<Song> favoriteSongs = Database::queryAllFavoriteItems();
+    QList<int> ids = {};
+        foreach (Song item, favoriteSongs) {
+            ids.append(item.sid);
+        }
+    auto songs = Database::queryAllPlayListItems();
+    if (songs.length() > 0) {
+        containerLayout->setCurrentIndex(1);
+    }
+    else {
+        containerLayout->setCurrentIndex(0);
+    }
+    items->clear();
+    for (int i = 0; i < songs.size(); i++) {
+        Song song = songs[i];
+        song.isFavorite = ids.contains(song.sid);
+        auto *widget = new ItemSong(i, song);
+        auto *item = new QListWidgetItem;
+        items->addItem(item);
+        items->setItemWidget(item, widget);
+    }
 }

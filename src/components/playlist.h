@@ -15,6 +15,7 @@ public:
     QStackedLayout *containerLayout;
     ClickedLabel *btnFind;
     QListWidget *items;
+    QLabel *count;
 
     void initData() const;
 

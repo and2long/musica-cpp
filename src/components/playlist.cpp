@@ -3,6 +3,8 @@
 #include "src/db/database.h"
 #include "ItemSong.h"
 
+auto countValue = QString("共 %1 首");
+
 PlayList::PlayList(QWidget *parent)
     : QWidget{parent}
 {
@@ -40,7 +42,7 @@ PlayList::PlayList(QWidget *parent)
     rowLayout->setSpacing(0);
     row->setLayout(rowLayout);
 
-    auto *count = new QLabel("共0首");
+    count = new QLabel();
     count->setFixedWidth(PLAY_LIST_WIDTH / 2);
     count->setObjectName("count");
     count->setAlignment(Qt::AlignLeft);
@@ -83,6 +85,7 @@ void PlayList::initData() const
             ids.append(item.sid);
         }
     auto songs = Database::queryAllPlayListItems();
+    count->setText(countValue.arg(songs.length()));
     if (songs.length() > 0) {
         containerLayout->setCurrentIndex(1);
     }
@@ -102,6 +105,7 @@ void PlayList::initData() const
 void PlayList::onBtnClearClicked() const
 {
     items->clear();
+    count->setText(countValue.arg(0));
     containerLayout->setCurrentIndex(0);
     Database::removeAllPlayListItems();
 }
